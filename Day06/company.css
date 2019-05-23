@@ -1,0 +1,70 @@
+*{margin: 0; padding: 0;}
+a{text-decoration: none;}
+ul{list-style: none;}
+
+/* 위의 3개 기본 */
+
+#page{
+    width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header{
+    width: 800px;
+    height: 95px;
+    background-color: #2d3a4d;
+
+    /* 헤더 안의 녀석들을 absolute로 쓰려면 .. */
+    position: relative;
+}
+
+/* 헤더 안에 있는 요소들의 배치를 절대배치(absolute) 방법 사용 */
+/* 앱솔루트는 브라우저 기준으로 돼, 이걸 감싸는 녀석이 static 이면 안돼 -> header position:relative로 바꿔*/
+#logo{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+/* 오른쪽 상단 메뉴 */
+#top_menu{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+#top_menu a{color: white;}
+
+/* 네비메뉴 */
+nav{
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+   
+}
+
+nav li{
+    display: inline;
+    margin-left: 30px;
+}
+
+nav li a{color: white;}
+
+/* 본문에 있는 배너 이미지 inline으로  */
+#content li{
+    display: inline;
+    margin: 50px;
+}
+
+/* footer */
+footer{
+    width: 800px; /*header도 800줘서 헤더랑 같이 주려고*/
+    height: 90px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+}
+
+footer img{margin: 10px 0 0 60px;}

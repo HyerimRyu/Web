@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <style>
+
+            /* box 가로넓이 = width+padding+border */
+
+            /* box-sizing: border-box; 속성을 주면 */
+            /* width=콘텐츠 넓이+padding+border : 마치 안드로이드의 xml 처럼 됨*/
+            *{box-sizing: border-box;}
+        
+            body{
+                font-family: Arial;
+                margin: 0;
+            }
+
+            /* header : 정 가운데 정렬 */
+            .header{
+                background-color: #1abc9c;
+                color: white;
+                text-align: center;
+                padding: 60px;
+            }
+
+            /* navigation 메뉴 */
+            .navbar{
+                display: flex;
+                background-color: #333333;
+            }
+
+            .navbar a{
+                color: white;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+            }
+
+            .navbar a:hover{
+                background-color: white;
+                color: black;
+            }
+
+            /* aside와 article이 한 줄에 배치되도록 부모요소에 flex*/
+            .container{
+                display: flex;
+            }
+
+            /* 자식 요소들의 flex 사이즈 지정 */
+            aside{
+                flex: 3; 
+                background-color: #f1f1f1;
+                padding: 20px;
+            }
+
+            article{
+                flex: 7;
+                background-color: white;
+                padding: 20px;
+            }
+
+            /* 이미지 공간 */
+            .image{
+                background: #aaa;
+                width: 100%;
+                padding: 20px;
+            }
+
+            footer{
+                height: 100px;
+                background-color: #ddd;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* 600보다 화면 사이즈가 작으면 */
+            @media screen and (max-width:600px){
+                .container, .navbar{
+                    flex-direction: column;
+                }
+            }
+        
+        </style>
+    </head>
+
+    <body>
+        <!-- notice -->
+        <div style="background-color:teal; padding: 5px;">
+            <h4 style="text-align:center;">Brower notice</h4>
+        </div>
+
+        <!-- header -->
+        <header class="header">
+            <h1>My Website</h1>
+            <p>With a <strong>flexible</strong>layout.</p>
+        </header>
+
+        <!-- navigation menu -->
+        <nav class="navbar">
+            <a href="">Link</a>
+            <a href="">Link</a>
+            <a href="">Link</a>
+            <a href="">Link</a>
+        </nav>
+
+        <!-- flex를 이용한 배치를 위한 부모요소 -->
+        <div class="container">
+            <!-- 왼쪽 사이드 -->
+            <aside>
+                <h2>About Me</h2>
+                <h5>Photo of me:</h5>
+                <div class="image" style="height:200px;">
+                    image into here
+                </div>
+
+                <p>This is some message</p>
+
+                <h3>More Text</h3>
+                <p>more text.......................</p>
+                <div class="image" style="height: 60px;">image</div>
+                <div class="image" style="height: 60px;">image</div>
+                <div class="image" style="height: 60px;">image</div>
+
+            </aside>
+
+            <!-- 본문 영역 -->
+            <article>
+                    <h2>TITLE HEADING</h2>
+                    <h5>Description about title 2019-03-26</h5>
+                    <div class="image" style="height:200px;">
+                        image into here
+                    </div>
+    
+                    <p>This is some message</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum dolore illum cupiditate eos rem, ex consequatur tempore, animi voluptas incidunt voluptatem maiores eius, impedit est ab reprehenderit earum eveniet possimus.</p>
+
+                    <h2>TITLE HEADING</h2>
+                    <h5>Descrioption about title 2019-03-26</h5>
+                    <div class="image" style="height:200px;">
+                        image into here
+                    </div>
+    
+                    <p>This is some message</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum dolore illum cupiditate eos rem, ex consequatur tempore, animi voluptas incidunt voluptatem maiores eius, impedit est ab reprehenderit earum eveniet possimus.</p>
+            </article>
+
+        </div>
+
+        <!-- footer -->
+        <footer class="footer">
+            <h2>Footer</h2>
+        </footer>
+    </body>
+</html>

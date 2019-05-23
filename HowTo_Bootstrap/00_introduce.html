@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Bootstrap Ex1</title>
+
+        <!-- Bootstrap을 사용하는 방법은 Jquery와 거의 같음 -->
+        <!-- Bootstrap 라이브러리의 css와 js문서를 이 문서에 삽입 -->
+
+        <!-- 방법은 3가지 : 다운로드 방식, CDN방식, install방식(인스톨 방식을 수업 안할꺼야) -->
+        <!-- 1. 다운로드 -->
+        <!-- Bootstap의 css를 연결: 사실 이것만 있어도 웹페이지의 디자인은 가능함 -->
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+        <!-- Bootstrap의 js를 연결 : 순서 중요. jquery가 먼저 해야해 -->
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+
+       <!-- 2. CDN -->
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <!--bootstrap 적용하기 : 이미 적용된 css에 클래스 선택자를 통해 각각의 스타일 코드들이 작성되어 있으므로 해당하는 클래스를 지정해 주기만 하면 됨. -->
+        <button class="btn btn-primary">BUTTON</button>
+
+        <div class="container" style="text-align:center; padding-top:16px;">
+            <button class="btn btn-primary">button</button>
+            <button class="btn btn-success">button</button>
+        </div>
+
+        <!-- 가장 많이 사용하는 테이블 작업도 쉽게 -->
+        <table class="table table-hover mt-3">
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+                <th>date</th>
+            </tr>
+            
+            <tr>
+                <td>1</td>
+                <td>sam</td>
+                <td>Hello bootstrap</td>
+                <td>2019.04.08</td>
+            </tr>
+            
+            <tr>
+                <td>2</td>
+                <td>fff</td>
+                <td>fu</td>
+                <td>2019.04.10</td>
+            </tr>
+        </table>
+
+        <hr>
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a href="" class="page-link">1</a></li>
+            <li class="page-item"><a href="" class="page-link">2</a></li>
+            <li class="page-item"><a href="" class="page-link">3</a></li>
+            <li class="page-item"><a href="" class="page-link">4</a></li>
+            <li class="page-item"><a href="" class="page-link">5</a></li>
+        </ul>
+
+        <hr>
+
+        <!-- 쇼핑몰 같은 곳에서 자주 보는 Card형태: ***************이거 MyList에 적용***********-->
+        <!-- rem : em과 거의 같되, 최상위 컴포넌트가 기준이 됨 -->
+
+        <div class="card" style="width:20rem">
+
+            <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+
+            <div class="card-body">
+                <h5 class="card-title">MOANA 01</h5>
+                <p class-text>moana is good movie</p>
+                <a href="" class="btn btn-primary">Go moana site</a>
+
+            </div>
+
+        </div>
+
+        <div class="card" style="width:20rem">
+
+                <img src="./images/moana02.jpg" alt="moana02" class="card-img-top">
+    
+                <div class="card-body">
+                    <h5 class="card-title">MOANA 01</h5>
+                    <p class-text>moana is good movie</p>
+                    <a href="" class="btn btn-primary">Go moana site</a>
+    
+                </div>
+    
+            </div>
+
+            <hr>
+            <!-- 카드들을 옆(row)방향으로 놓고 싶을 때 -->
+            <div class="container mt-3">
+                <div class="row">
+                        <div class="card" style="width:20rem">
+
+                         <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+                
+                        <div class="card-body">
+                            <h5 class="card-title">MOANA 01</h5>
+                            <p class-text>moana is good movie</p>
+                            <a href="" class="btn btn-primary">Go moana site</a>                    
+                        </div>
+                
+                    </div>
+                    
+                    <div class="card ml-3" style="width:20rem">
+                    
+                            <img src="./images/moana02.jpg" alt="moana02" class="card-img-top">
+                        
+                            <div class="card-body">
+                                <h5 class="card-title">MOANA 01</h5>
+                                    <p class-text>moana is good movie</p>
+                                    <a href="" class="btn btn-primary">Go moana site</a>
+                        
+                                </div>
+                        
+                                </div>
+
+                </div>
+
+            </div>
+        
+    </body>
+</html>

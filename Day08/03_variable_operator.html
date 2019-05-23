@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        
+            //같은 변수명으로 선언해도 에러가 아님
+            var a=10;
+            var a;
+            document.write(a+"<br>");
+
+            var b=10;
+            var b=30;
+            document.write(b+"<br>");
+            // 별로야~ 이렇게 쓰면 헷갈려
+
+            // 수치형 실수형(소수점)
+            // 실수형 표기법
+            var c=3.14;
+            document.write(c+"<br>");
+
+            c=125.5e3; //지수형 
+            document.write(c+"<br>");
+
+            c=125.5e-3; //-3승 
+            document.write(c+"<br>");
+
+            // 연산자 중 특이한 것
+            var d=1; //number
+            var e="1"; //string
+            var f=1.0; //number
+
+            //== 연산자는 자료형을 구분하지 않음
+            document.write(d==e); //true
+            document.write("<br>");
+
+            document.write(d==f); //true
+            document.write("<br>");
+
+            //=== 연산자는 값돠 자료형이 모두 같아야 true
+            document.write(d===e); //false
+            document.write("<br>");
+
+            document.write(d===f); //true : 실수와 정수 구분 없어
+            document.write("<br>");
+            document.write("<hr>");
+
+            //0으로 나눗셈: 자바에서는 에러! 여기에서는 무한대
+            document.write(10/0); //Infinity 무한대
+            document.write("<br>");
+
+            //비트연산자 (& | ~(not)) 중 새로 추가된 shift연산자 >>>
+            //양수일 때는 차이가 없음
+            var g=10;
+            document.write(g>>2);
+            document.write("<br>");
+            document.write(g>>>2);
+            document.write("<br>");
+
+            //음수 일 때 >>>은 부호비트까지 시프트가 됨(즉, 부호가 양수로 바뀜)
+            var h=-16;
+            document.write(h>>2);
+            document.write("<br>");
+            document.write(h>>>2);
+            document.write("<br>");
+
+            // 표현 가능한 최대 숫자값을 알 수 있음
+            document.write(Number.MAX_VALUE); //Number static을 부르겠다
+            document.write("<br>");
+
+            document.write(12345678912345677895432214);
+            document.write("<br>");
+
+            //JS만의 연산자: 나중에 학습
+            //in , delete , instanceof, yield
+
+            document.write("<hr>");
+
+            //자료형의 변환
+            //수치형 문자형으로 변환
+            var k=1;
+            document.write(typeof(k)+"<br>");
+
+            //k=String(k);
+            k=k+"";
+            document.write(typeof(k)+"<br>");
+
+            //문자형을 수치형으로
+            k=parseInt("4");
+            document.write(typeof(k)+"<br>");
+
+            //숫자가 아닌 문자열을 변환하고자 하면??
+            k=parseInt("aa");
+            document.write(typeof(k)+"<br>");
+            document.write(k+"<br>"); //NaN : Not a Number
+
+            // 실수형 타입을 변환??
+            k=parseInt("3.14");
+            document.write(k+"<br>");
+
+            //실수변환 전용 parse
+            k=parseFloat("3.14"); //parseDouble은 없음
+            document.write(k+"<br>");
+
+            document.write("<hr>");
+
+            //위의 변환을 사용하는 예제
+            //사용자 입력은 무조건 string으로 읽어짐
+            var age=prompt("input your age", "hint"); //사용자 입력이 가능한 다이얼로그
+            
+            age=parseInt(age);
+            document.write(age+3);  //(위의 parseInt()없으면 )나이 입력 10일 때, 결과는 103, 있으면 13
+            document.write("<br>");
+
+            // 사용자 입력은 prompt보다는 input요소를 선호함
+
+
+
+
+
+
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>

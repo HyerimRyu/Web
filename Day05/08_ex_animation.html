@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>ex</title>
+
+    </head>
+
+    <body>
+        <!-- 흑백 이미지로 만들어보기 -->
+        
+        <!-- 투명도 -->
+        <h1>opacity 속성</h1>
+        <img class="aa" src="./lion.png" alt="lion" width="150" height="150">
+        <img class="aa" src="./audio.png" alt="audio" width="150" height="150">
+
+        <style>
+            /* 쇼핑몰 참고 */
+            img.aa{opacity: 0.4;}
+            img.aa:hover{opacity: 1.0;}
+        </style>
+
+        <hr>
+
+        <!-- visibility 가시성 -->
+        <h1>visibility 속성</h1>
+        <img class="bb" src="./lion.png" alt="lion" width="150" height="150">
+        <img class="bb" src="./audio.png" alt="audio" width="150" height="150">
+
+        <style>
+            /* 쇼핑몰 참고 */
+            img.bb{visibility: visible;}
+            img.bb:hover{visibility: hidden;}
+        </style>
+
+        <hr>
+
+        <!-- transform 변환 -->
+        <div class="cc">
+            <div id="b1">Box1</div>
+            <div id="b2">Box2</div>
+            <div id="b3">Box3</div>
+            <div id="b4">Box4</div>
+
+        </div>
+
+        <style>
+            .cc div{
+                width: 50px;
+                height: 50px;
+                background: chartreuse;
+                border: 1px solid black;
+                text-align: center;
+            }
+
+            div#b1{
+                background-color: bisque;
+                transform:translate(100px, 0px);
+            }
+
+            div#b2{
+                background:blueviolet;
+                transform:scale(1.2,1.2);
+            }
+
+            div#b3{
+                background-color: brown;
+                transform:rotate(30deg);
+            }
+
+            div#b4{
+                background:chocolate;
+                transform:skew(30deg, 15deg);
+            }
+        </style>
+        <hr>
+
+        <!-- 전환효과 -->
+        <div id="dd">마우스를 올려보세요</div>
+        <style>
+            div#dd{
+                width: 100px;
+                height: 50px;
+                border: 1px solid black;
+                background: yellow;
+
+                transition: width 3s;
+            }
+
+            div#dd:hover{
+                width: 200px;
+            }
+        </style>
+        <hr>
+
+        <!-- 복합적인 전환효과 -->
+        <div class="ff">
+            <img src="lion.png" alt="lion">
+            <img src="pome.png" alt="pome">
+        </div>
+        <style>
+            div.ff img{
+                background-color: cadetblue;
+                width: 200px;
+                height: 100px;
+
+                transition: width 3s, heigh 3s, transform 3s, background-color 3s;
+            }
+
+            div.ff img:hover{
+                width: 300px;
+                height: 150px;
+
+                transform: rotate(30deg);
+                transform: rotate(1.6rad);
+                transform: translate(100px, 100px);
+
+                /* 다중변환 */
+                transform: rotate(30deg) scale(1.2, 1.2) translate(80px, 0px);
+                background-color: chocolate;
+            }
+        </style>
+
+        <hr>
+        <hr>
+        <hr>
+        <hr>
+
+    </body>
+</html>

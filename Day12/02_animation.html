@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- jQuery 라이브러리 추가 : CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#btn1').click(function(){
+                    $('img').show("slow");
+                });
+
+                $('#btn2').on('click', function(){
+                    $('img').hide(3000);
+                });
+                
+                $('#btn3').on('click', function(){
+                    $('img').toggle("fast");
+                });
+
+                $('#btn4').on('click', function(){
+                    $('img').fadeIn(5000, function(){
+                        alert('complete');
+                    });
+                });
+
+                $('#btn5').on('click', function(){
+                    $('img').fadeOut(5000);
+                });
+
+                $('#btn6').on('click', function(){
+                    $('img').fadeTo(3000,0.5); //투명도 0.0~1.0 (0.5는 반투명)
+                });
+
+                $('#btn7').on('click', function(){
+                    $('img').slideUp("slow");
+                });
+
+                $('#btn8').on('click', function(){
+                    $('img').slideDown("slow");
+                });
+
+                $('#btn9').on('click', function(){
+                    $('img').slideToggle("slow");
+                });
+
+                $('#btn10').on('click', function(){
+                    $('img').fadeOut('slow').slideDown('slow');
+                });
+
+
+
+            });
+        
+        </script>
+
+    </head>
+
+    <body>
+        
+        <p>
+            <button id="btn1">show</button>
+            <button id="btn2">hide</button>
+            <button id="btn3">toggle</button>
+            <button id="btn4">fadein</button>
+            <button id="btn5">fadeout</button>
+            <button id="btn6">fadeto</button>
+            <button id="btn7">slideup</button>
+            <button id="btn8">slidedown</button>
+            <button id="btn9">slideToggle</button>
+            <button id="btn10">show+fade+slide</button>
+
+        </p>
+
+        <img src="./Jellyfish.jpg" alt="200">
+
+        <!-- 애니메이션 응용 -->
+        <hr>
+        <style>
+            div.abc div{
+                background: #3d9a44;
+                margin: 3px;
+                width: 80px;
+                height: 40px;
+                text-align: center;
+            }
+        </style>
+        <div class="abc">
+            Menu
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>dd</div>
+            <div>ee</div>
+            <div>ff</div>
+            
+        </div>
+
+        <script>
+            $('div.abc').click(function(){           //*******쇼핑몰 참고
+                if(  $('div.abc div:first').is(":hidden")  ){
+                    $(".abc div").slideDown("slow");
+                }else{
+                    $(".abc div").slideUp("slow");
+                }
+            });
+
+        </script>
+
+    </body>
+</html>

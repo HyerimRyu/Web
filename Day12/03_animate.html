@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+         <!-- jQuery 라이브러리 추가 : CDN -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+         <script>
+             $(document).ready(function(){
+                $('#btn1').on('click', function(){
+                    $('img').animate( {left:'200px'});
+                });
+
+                $('#btn2').on('click', function(){
+                    $('img').animate( {left:''}, 3000);
+                });
+
+                $('#btn3').on('click', function(){
+                    $('img').animate( {left:'+=50px',opacity:'0.4', width:'+=50px'} );
+                });
+
+                $('#btn4').on('click', function(){
+                    $('img').animate({left:'+=30px'}, 1000);
+                    $('img').animate({opacity:'0.4'}, 1000);
+                    $('img').animate({left:'+=50px'}, 1000);
+                    $('img').animate({left:'-=50px'}, 1000);
+
+                });
+
+                $('#btn5').on('click', function(){
+                    $('img').animate( {left:'',opacity:'1.0', width:'200px'} );
+
+                });
+
+                $('#btn6').on('click', function(){
+                    $('img').stop();
+
+                });
+             });
+         
+         </script>
+
+    </head>
+
+    <body>
+
+        <p>
+            <button id="btn1">move</button>
+            <button id="btn2">moveBack</button>
+            <button id="btn3">multiAni</button>
+            <button id="btn4">SequentialAni</button>
+            <button id="btn5">reset</button>
+
+            <button id="btn6">stop</button>
+        </p>
+        
+        <img src="./Jellyfish.jpg" alt="200" style="position:relative">
+
+    </body>
+</html>

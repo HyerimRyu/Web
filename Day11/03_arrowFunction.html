@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        <script>
+        // 화살표 함수(arrow function)-JAVA언어에서는 람다식
+
+        // 1. 일반적인 함수선언
+        function show(){
+            document.write("show!<br>");
+        }
+        show();
+
+        // 2. 함수를 변수에 저장하여 사용하기('익명함수객체'라고 부름)
+        let output=function(){
+            document.write("out!<br>");
+        }
+        output(); //변수명이 함수명이 됨
+
+        // 3. 위에 있는 '익명함수객체'를 화살표 함수로 변경하여 사용할 수 있음
+        let display=()=>{
+            document.write("display!<br>");
+        }
+        display();
+
+        // 파라미터 받는것도 당연히 가능
+        let display2=(name)=>{
+            document.write("display2 :"+name+"<br>")
+        }
+        display2("robin");
+
+        // 화살표 함수의 단축 표기법
+        // 1)파라미터가 1개 일 때는 ()표시도 생략가능
+        let display3= name =>{
+            document.write("display3 :"+name+"<br>")
+        }
+        display3("hong");
+
+        // 2) 함수의 실행문, 즉 {}안에가 한 줄 이라면 {}도 생략가능
+        let display4= name => document.write("display4 :"+name+"<br>")
+        display4("kim");
+
+        // 주의 ..()생략은 파라미터 1개 일 때만 가능함[없거나 2개 이상이면 반드시 기입]
+        let display5= () => document.write("display5 <br>")
+        display5();
+
+        let display6= (name,age) => document.write("display6 :"+name+","+age+"<br>")
+        display6("lim",30);
+
+
+
+        </script>
+
+        <hr>
+
+        <!-- 화살표 함수는 보통 이벤트를 처리 할 때 많이 사용해 -->
+        <button id="btn">button</button>
+        <p id="p1"></p>
+        <script>
+            // 1. 버튼에 클릭이벤트 달기
+            // 1) 예전방식
+            let btn1=document.getElementById('btn');
+            btn1.onclick=function(){
+                document.getElementById('p1').innerHTML="clickBtn";
+            }
+        
+            // 화살표 함수로 처리
+            btn1.onclick= ()=> document.getElementById('p1').innerHTML="click!!!";
+
+            // 2. 반복문 처리 할 때 특별하게 사용 가능
+            let arr=new Array(10,20,30);
+            document.querySelector('#p1').innerHTML=arr[0]+"<br>";
+
+            for(let i=0; i<arr.length; i++){
+                document.querySelector('#p1').innerHTML+=arr[i]+"<br>";
+            }
+
+            // 마치 foreach 처럼 사용하는 것 in연산자
+            for(index in arr){
+                document.querySelector('#p1').innerHTML+=arr[index]+"<br>";
+            }
+
+            // 자바에서 사용하는 foreach문... 같은 능력  ******************JS에서 요즘 다 이렇게 써 *****
+            // Array배열객체의 메소드 foreach()를 사용
+            arr.forEach( function(value){
+                document.querySelector('#p1').innerHTML+=value+"<br>";
+            } );
+
+            // forEach()함수의 콜백 함수로 화살표 함수를 사용할 수 있겠다!!!!!
+            arr.forEach( (value)=>{document.write(value+"<br>")} );
+            arr.forEach( value=>document.write(value+"<br>") );
+
+            document.write("<hr>");
+
+            // map()함수: forEach()와 같되 리턴이 있음. 리턴의 결과는 배열
+            // ex)배열의 요소 값에 1씩 증가
+            arr.map( function(){
+                return value+1;
+            } ); 
+            document.write("결과: "+resultArr+"<br>");
+
+            // 화살표 함수로 변경해보기
+            resultArr = arr.map( (value)=>{return value+1;});
+            document.write("결과: "+resultArr+"<br>");
+
+            // 파라미터가 1개면 ()생략가능, {}안에 실행문이 1개면 {} 생략 가능
+            // 주의!! {}를 생략 할 때는 return키워드를 사용할 수 없음
+            resultArr=arr.map( value => value+1 );
+
+
+
+
+        </script>
+    </body>
+</html>

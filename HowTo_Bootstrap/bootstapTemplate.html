@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ootstrap Template Page</title>
+
+        <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <!-- 1. header영역 -->
+        <header class="jumbotron text-center bg-info mb-0">
+            <h1>Bootstrap Template Page</h1>
+            <p>This is bootstrap template page</p>
+        </header>
+
+        <!-- 2. nav영역 -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container">
+                <!-- LOGO 글씨 or 이미지 -->
+                <a href="#" class="navbar-brand">Logo</a>
+                <!-- 모바일 화면에서 오른쪽 끝에 배치되는 삼선메뉴 아이콘 -->
+                <button class="navbar-toggler" data-toggler="collapse" data-target="#navMenu"><span class="navbar-toggler-icon" ></span></button>
+                <!-- 네비메뉴 -->
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="#" class="nav-link">menu1</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">menu2</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">menu3</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- 콘텐츠 영역 4:8로 배치 -->
+        <div class="container mt-4">
+            <div class="row">
+                <aside class="col-sm-4">
+                    <h2>My Information</h2>
+                    <h5>profile Image</h5>
+                    <img src="./images/moana04.jpg" alt="moana04" style="width:100%;" class="rounded">
+                    <p>Some text about me</p>
+
+                    <h5>Some Links</h5>
+                    <p>My portfolio</p>
+                    <ul class="list-group">
+                        <!-- *********list-group-item-action : 꼭 링크가 아니라 박스만 눌러도 링크로 이동-->
+                        <li class="list-group-item list-group-item-action"><a href="">Link 1</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="">Link 2</a></li>
+                        <li class="list-group-item list-group-item-action"><a href="">Link 3</a></li>
+                    </ul>
+
+                    <hr class="d-sm-none">
+                </aside>
+
+                <article class="col-sm-8">
+                    <h2>Main Article Title</h2>
+                    <h5>This is first article</h5>
+                    <img src="./images/moana05.jpg" alt="moana05" style="max-width:100%;" class="rounded">
+                    <p>Some test... ...</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores labore a voluptatem qui consequatur reiciendis voluptatum possimus consectetur excepturi cupiditate aliquid voluptates enim pariatur, unde incidunt molestias autem recusandae mollitia!</p>
+                    <br>
+
+                     <h2>Main Article Title</h2>
+                    <h5>This is first article</h5>
+                    <img src="./images/moana04.jpg" alt="moana04" style="max-width:100%;" class="rounded">
+                    <p>Some test... ...</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores labore a voluptatem qui consequatur reiciendis voluptatum possimus consectetur excepturi cupiditate aliquid voluptates enim pariatur, unde incidunt molestias autem recusandae mollitia!</p>
+                    <br>
+                </article>
+            </div>
+        </div>
+
+        <!-- footer 영역 -->
+        <footer class="jumbotron text-center">
+            <h4>Footer</h4>
+            <p>Copyright &copy; 2019 Designed by mrhi android class</p>
+        </footer>
+        
+    </body>
+</html>

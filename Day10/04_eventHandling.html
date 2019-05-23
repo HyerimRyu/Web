@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        
+            // 이벤트를 처리하는 3가지 방법
+            // 1. html의 요소에 속성으로 콜백함수 지정 <button onclick="aaa()">
+            // 2. 자바스크립트에서 요소를 찾아와서 이벤트 콜백 함수를 속성에 지정하기
+            // 3. 요소에 특정 이벤트 리스터를 추가하는 메소드를 통해 처리 (W3S에서 3번 권장)
+
+            // onload 이벤트 - 문서의 로드가 모두 완료되면 발생하는 이벤트
+            
+
+            // body요소 안에 있는 h2요소 제어하기
+            //document.getElementById('aa').innerHTML="Hello";
+
+            function loaded(){
+                document.getElementById('aa').innerHTML="Hello";
+
+                 // 이벤트를 처리하는 2번째 방법
+                 document.getElementById('aa').onclick=function(){
+                   //  alert();
+                   document.getElementById('aa').innerHTML +="android";
+                 }
+
+                //  document.getElementById('aa').ondblclick=function(){
+                //      alert('double');
+                //  }
+
+                //이벤트 처리 3번째 방법 (W3C에서 권장하는 방법)
+                document.getElementById('aa').addEventListener('dblclick', function(){
+                    alert('double click!!!!!! 눌렀다!!!!!!!!!!');
+                });
+            }
+
+           
+
+        </script>
+    </head>
+
+    <body onload="loaded()">
+
+        <h2 id="aa"></h2>
+
+        <hr>
+        <!-- 사용자 입력 필드에 대한 이벤트 -->
+        <input type="text" name="" id="in1" onfocus="aaa()">
+        <input type="text" id="in2" onblur="bbb()" onchange="ccc()">
+        <script>
+            function aaa(){
+                document.getElementById('in1').value="aa";
+            }
+
+            function bbb(){
+                alert('blur');
+                //var val=document.getElementById('in2').value;
+                //document.getElementById('in2').value=val.toUpperCase();
+            }
+
+            function ccc(){
+                alert('change');
+                var val=document.getElementById('in2').value;
+                document.getElementById('in2').value=val.toUpperCase();
+            }
+        </script>
+
+        <hr>
+        <!-- 마우스 이벤트 -->
+        <!-- 마우스 이벤트 : over, out, move -->
+        <div onmouseover="over(this)" onmouseout="out(this)" onmousemove="move(this)" style="width:200px; height:100px; background-color:khaki;"></div>
+        <script>
+            function over(e){
+                e.style.backgroundColor="lightgreen"; //js에서는 camel표기법 css는 -로
+                e.style.border="2px solid red";
+
+            }
+            
+            function out(e){
+                e.style.backgroundColor="khaki";
+                e.style.border="";
+            }
+
+            var a=0;
+            function move(e){ //move는 한번이 아니야!! 게임이 이렇게 만드는거야 
+                a++;
+                e.innerHTML=a;
+            }
+
+        </script>
+
+        <!-- 마우스 move의 좌표 && MouseEvent객체 -->
+        <div style="width:200px; height: 100px; background-color: green;" id="kk"></div>
+
+        <script>
+            document.getElementById('kk').addEventListener('mousemove',function(e){
+                // 파라미터 e : MouseEvent객체
+                var str="브라우저 좌표 : " + e.clientX+","+e.clientY+"<br>";
+                str += "화면좌표 : " + e.screenX+","+e.screenY+"<br>";
+                str += "영역의 좌표 : " + e.offsetX+","+e.offsetY;
+
+                document.getElementById('kk').innerHTML=str;
+            });
+        </script>
+
+        <!-- 마우스 다운&업 -->
+        <button id="btn">button</button>
+        <script>
+            var btn=document.getElementById('btn');
+
+            // 마우스 다운 이벤트 처리
+            btn.addEventListener('mousedown',function(){
+                btn.style.backgroundColor="#ff0000";
+                btn.style.color="#ffff00";
+                btn.style.fontSize="2em"; //2배 사이즈
+            });
+
+            // 마우스 업 이벤트 처리
+            var up=function(){
+                btn.style.backgroundColor=""; //"" 속성 없애기(원래 값으로 되돌리기)
+                btn.style.backgroundColor="";
+                btn.style.color="";
+            };
+
+            // 마우스 업 이벤트 처리
+            btn.addEventListener('mouseup', up);
+        
+        </script>
+
+        <!-- 키보드 이벤트는 별도로 진행 -->
+
+    
+
+        <!-- 입력폼 유효성 검사 : 정규표현식 -->
+        <!-- 정규표현식 + onblur 이벤트로 처리함  -->
+        <hr>
+        <h3>RegExp 객체(Regular expression</h3>
+
+        <input type="text" name="" id="in3">
+        <button onclick="checkReg()">check</button>
+        <p id="p5"></p>
+        
+        <script>
+            function checkReg(){
+
+                var in3=document.getElementById('in3');
+                var p5=document.getElementById('p5');
+
+                // 정규 표현식 맛보기
+                var regExp=/^[a-zA-Z]+$/;   //영문자 한 개 
+
+                // 정규 표현식으로 유효성 검사 하는 2가지 방법
+                // 1. String의 .match()메소드
+                if(in3.value.match( regExp) ) p5.innerHTML="OK";
+                else p5.innerHTML="요구하는 형식이 아닙니다."
+
+
+                // RegExp 연습 - 정규표현식 연습
+                regExp=/a/;      //^꺽쇠 없이 시작하면, a문자가 포함된 모든...a가 없으면 땡 쓴 글 중 a가 있으면 돼
+                regExp=/A/;      //대문자 A가 포함된; A랑 a랑 달라 아스키 다르잖아
+                regExp=/ab/;      //ab문자가 포함된 모든..
+                regExp=/^a/;      //시작이 무조건 a 
+                regExp=/^[a-z]/;  //시작이 무조건 소문자
+                regExp=/a$/;       //끝이 무조건 a...
+                regExp=/ab$/;      //끝이 무조건 ab..
+                regExp=/^a$/;      //무조건 a 한글자만 돼!!(시작이 a이고 끝이 a인거 아니야!) 
+                regExp=/^[a-z]$/;    //소문자 1개!
+                regExp=/^[a-zA-Z]$/;     //영문자 1개, 대소문자 구분없이
+                regExp=/^[a-zA-Z0-9]$/;    //영문자 또는 숫자 1개만! 
+                regExp=/^[a-z]{2}$/;  //소문자 2개! -> {}안의 숫자: 글자 수 
+                regExp=/^[a-z]{2,4}$/;  //무조선 소문자 2~4개 (숫자 개수 제한)
+                regExp=/^[a-z]*$/;    //소문자 0개 이상! (안 써도 되고, 써도 돼. 값이 없어도 OK)
+                regExp=/^[a-z]+$/;    //***(많이 써)소문자 1개 이상! 
+                regExp=/^[a-z]?$/;     //0개 또는 1개
+                regExp=/^[0-9]$/;      //숫자 1개
+                regExp=/^[5-9]$/;      //숫자 1개(5~9 중)
+                regExp=/^\d$/;  //숫자 1개
+                regExp=/^\d\d\d$/;  //숫자 3자리 (전화 번호 이렇게 만들어)
+                regExp=/^\d{3,4}$/;  //숫자 3~4 자리
+                regExp=/^[a-z]{4,}$/; //4글자 이상
+                regExp=/^\d\da\d\da\d\d$/;  //숫자 2개 a 숫자 2개 a 숫자 2개
+
+
+                regExp=/^d\d\d\d\-\d\d\-d\d$/;  //생년월인 0000-00-00
+                regExp=/^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-zA-Z]+$/   //***email 형식  ### @ ###.##
+                regExp=/^http:/ //시작이 http: -url주소
+
+                regExp=/^\/$/;  // \(역슬래시)는 escape문자야. (like \n)
+
+
+
+
+
+                // 2. RegExp객체의 test()메소드 
+                if(regExp.test(in3.value) ) p5.innerHTML="OK";
+                else p5.innerHTML="요구하는 형식이 아닙니다."
+            }
+        </script>
+
+
+    </body>
+</html>

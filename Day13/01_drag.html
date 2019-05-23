@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <style>
+            div#cart{
+                width: 400px;
+                height:150px;
+                padding: 10px;
+                border: 1px dotted red;
+            }
+        
+        </style>
+
+        <script>
+        
+            var e;  //드래그 소스요소
+            var overTarget=false;  //'cart'요소 위에 올라갔는지 여부
+
+            function startDrag(){
+                // 드래그하는 요소를 찾아오기
+               e = event.target;
+               //alert(e);
+            }
+
+            function overDrag(){
+                overTarget=true;
+                // 기본적(default)으로 요소 위에 요소를 놓을 수 없도록 방지되어 있음
+                event.preventDefault();
+
+            }
+
+            function leaveDrag(){
+                overTarget=false;
+
+            }
+
+            function dropDrag(){
+
+            }
+
+            function endDrag(){
+                if(overTarget){
+                    // 요소를 'cart' div요소의 자식으로 추가
+
+                    document.getElementById('cart').appendChild(e);
+
+                    overTarget=false;
+                }
+
+
+            }
+
+        </script>
+    </head>
+
+    <body>
+        
+        <div id="cart" ondragover="overDrag()" ondragleave="leaveDrag()" ondrop="dropDrag()"></div>
+
+        <img ondragstart="startDrag()" ondragend="endDrag()" src="./Desert.jpg" width="150" height="150" id="img01">
+        <img ondragstart="startDrag()" ondragend="endDrag()" src="./koo.jpg" width="150" height="150" id="img02">
+    </body>
+</html>

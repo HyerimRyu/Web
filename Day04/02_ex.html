@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>02_Ex</title>
+
+        <style> /*쇼핑몰 이렇게 만드는거야*/
+            a#anchor:link{color: blue;}
+            a#anchor:visited{color: green;}
+            a#anchor:hover{color: red; font-size: 2em}
+            a#anchor:active{color: yellow;}
+
+            p:hover{background-color: greenyellow;}
+            img{border: 2px solid blue;}
+            img:hover{background-color: grey; width: 100%}
+
+            ul.aa{list-style-type: circle; }
+            ul.bb{list-style-type:square;}
+            ul.cc{
+                list-style-type:disc;
+                list-style-position: inside;
+                /* 리스트 이미지는 사이즈 조절이 번거로워서 사용 잘 안해 */
+                list-style-image: url('border.png');
+            }
+
+            /* 테이블 스타일 */
+            table{
+                border: 2px solid;
+                /* 이중 경계선 합치기 */
+                border-collapse: collapse;
+            }
+
+            td, th{
+                border: 1px solid;
+                padding: 10px 5px;
+            }
+
+            th{
+                background-color: green;
+                color: white;
+                border-bottom-color:red; 
+            }
+
+            tr:nth-child(2n+0){background-color: yellow;}
+            td:first-child{width: 40%;} /*td에게 부모는 table이어서 테이블의 40%*/
+            td:last-child{width: 200px}
+            td{text-align: center;}
+
+            /* 테이블의 첫 번째 자식에 대한 주의점 */
+            /* tbody가 자동생성되어 테이블 전체를 감싸 thead, tbody, tfooter의 존재를 인식해야 해*/
+            table>:nth-child(1){
+                border: 10px solid blue;
+            }
+            /* 주의점 *****************************이거 엄청 짜증나!!!!!!!!!!table의 자식이 아니라 자손이어야 해!!!! 티 바디가 또 있기 때문에!! 테이블은 주의할게 많아*/
+            table>tr{color: red;}
+            table tr{color: cadetblue;}
+
+            
+        </style>
+
+
+    </head>
+
+    <body>
+        <a href="" id="anchor">aaaaa</a>
+        <p>Hello world</p>
+
+        <img src="./image.png" alt="image">
+
+        <!-- 리스트 스타일 --> 
+        <!-- 복붙하고 ctrl+z 하면 들여쓰기 돼 -->
+        <ul class="aa">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+         <ul class="bb">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+        <ul class="cc">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        /* 테이블 스타일 */
+        <table>
+        <tr>
+            <th>이름</th>
+            <th>이메일</th>
+        </tr>
+        <tr>
+            <td>이영애</td>
+            <td>bbb@bbb.bb</td>
+        </tr>
+        <tr>
+            <td>홍길동</td>
+            <td>ccc@vv.vv</td>
+        </tr>
+        <tr>
+            <td>송송희</td>
+            <td>ccc@vv.vv</td>
+        </tr>
+         <tr>
+            <td>기민희</td>
+            <td>ccc@vv.vv</td>
+        </tr>
+
+        </table>
+
+    </body>
+</html>

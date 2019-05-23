@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+
+        <div id="map" style="width:500px;height:400px;"></div>
+
+        <!-- 카카오 지도 api를 이용하기 위한 js문서를 적용 -->
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=993f0b2ffd7e48f5a1e25032afdeb888"></script>
+
+        <script>
+            
+            var container= document.getElementById('map');
+
+            //지도 정보에 대한 옵션 객체
+            var options= { ///지도를 생성할 때 필요한 기본 옵션
+                center: new daum.maps.LatLng( 33.450701 , 126.570667 ), ///지도의 중심좌표.
+                lavel: 3 ///지도의 레벨(확대, 축소 정도)
+            };
+
+            //맵 객체 생성 및 보여주기
+            var map= new daum.maps.Map( container, options ); ///지도 생성 및 객체 리턴
+
+            //마커객체 생성하기
+            var marker= new daum.maps.Marker({
+                position: new daum.maps.LatLng( 33.450701 , 126.570667 )
+            });
+
+            //마커 표시하기
+            marker.setMap( map );
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form test</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+
+
+    <body>
+        
+        <!-- GET Method form 연습 -->
+        <form action="getTest.php" method="GET">
+            <input type="text" name="name">
+            <input type="text" name="msg" >
+
+            <input type="submit">
+
+        </form>
+
+        <!-- POST Method form 연습 -->
+        <form action="postTest.php" method="POST">
+            <fieldset>
+                <legend>POST TEST</legend>
+
+                <label>name : <input type="text" name="name"></label>
+                <br>
+                <label>pass : <input type="password" name="pw"></label>
+                <br>
+
+                <p>
+                    Gender : 
+                    <label><input type="radio" value="male" name="rg1">male</label>
+                    <label><input type="radio" value="female" name="rg1" checked>female</label>
+                </p>
+
+                <p>
+                    fruits :
+                    <label><input type="checkbox" value="apple" name="fruits[]">Apple</label>
+                    <label><input type="checkbox" value="banana" name="fruits[]">Banana</label>
+                    <label><input type="checkbox" value="orange" name="fruits[]">Orange</label>
+                </p>
+
+                <p>
+                    message : <br>
+                    <textarea name="msg" cols="40" rows="5"></textarea>
+                </p>
+
+                <div>
+                    <select name="sel">
+                        <optgroup label="자동차 브랜드">
+                            <option value="현대">현대</option>
+                            <option value="벤츠">벤츠</option>
+                            <option value="아우디">아우디</option>
+                            <option value="BMW">BMW</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div>
+                    <input type="submit">
+                    <input type="reset">
+
+                </div>
+
+            </fieldset>
+        </form>
+
+    </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        //[계산]버튼이 클릭되었을 때 입력값들을 받아서 덧셈 수행
+        //in1+in2=>result; (버튼이 눌렀을때!->onClick) 
+        function cal(){
+            //1. 사용자 입력을 받으려면-> input 요소들 부터 참조(제어) : 변수가 있어야 참조를 할거 아냐~
+            var in1=document.getElementById('in1');
+            var in2=document.getElementById('in2');
+
+            //2. input요소에 있는 값 얻어오기->value
+            var a=in1.value; //요소 객체의 속성명이 멤버변수명
+            var b=in2.value;
+
+            //3. 입력받은 두 수의 덧셈 계산
+            var sum=a+b;
+            sum=parseInt(a)+parseInt(b); //*************중요****
+
+            //4. 계산 결과를 result라는 id를 가진 input요소에 출력하기
+            var result=document.getElementById('result');
+            result.value=sum; //입력값 10,20 일 때 1020나와: 입력값은 string 이어서-->sum=parseInt(a)+parseInt(b); 필요
+        }
+
+
+        function changeColor(){
+            //1. id가 aa인 요소를 참조하기
+            var e=document.getElementById('aa');
+            e.style.color="red"; //글자 색 바꾸기
+            e.style.backgroundColor="yellow"; //카멜표기법으로
+            e.style.border="2px solid blue";
+
+            //요소를 찾는 다른 방법
+            var es=document.getElementsByTagName('h2'); //getElements!! getElement 아니고 s 붙은 복수! 같은 타입의 요소가 여러개 일 수 있어서=>배열!
+            es[0].style.color="red"; //글자 색 바꾸기
+            es[0].style.backgroundColor="yellow"; //카멜표기법으로
+            es[0].style.border="2px solid blue";
+        }
+
+        function changeImage(){
+            var imgs=document.getElementsByName('abc');
+            imgs[0].src="../Day6/images/logo.png";
+        }
+            
+        
+        </script>
+    </head>
+
+    <body>
+        
+        <input type="text" id="in1"><br>
+        <input type="text" id="in2"><br>
+        <input type="button" value="계산" onclick="cal()"><br>
+        <input type="text" size="30" id="result"><br>
+
+        <hr>
+
+        <!-- HTML 요소의 특정 스타일 변경 -->
+        <h2 id="aa">This is Heading element</h2>
+        <button onclick="changeColor()">Change background color of h2</button>
+        <hr>
+
+        <!-- 이미지 변경 -->
+        <img src="../Day6/images/notebook.png" alt="notebook" name="abc">
+        <button onclick="changeImage()">Change image</button>
+
+        <hr>
+
+        <!-- 제어문은 사실 거의 똑같아 if, if else, while, for, switch -->
+        <!-- 특이한 점 : js는 html 안에 중간 삽입도 가능 -->
+        <table border="1" style="text-align: center;">
+            <tr><th>숫자</th></tr>
+        <script>
+            
+            for(var i=0; i<10; i++){
+                document.write("<tr><td>"+i+"</tr></td>"); //도큐먼트에 요소명 쓰면 요소 속성이 적용되서 출력
+
+            }
+            document.write("</table>");
+        </script>
+        </table>
+
+        <!-- 객체의 멤버변수(속성) 순차적으로 출력 -->
+        <button onclick="showMember()">객체의 멤버값 출력</button>
+        <script>
+            function showMember(){
+                //객체 생성
+                var student={name:"aaa", age:20, major:"android"};
+
+                document.write( student['name']); //[name]하면 에러! ''필수
+
+                //키 값을 하나씩 반복해서 t에 줘
+                for(var t in student){
+                    document.write(student[t] + "<br>");
+                }
+            }
+        </script>
+
+
+
+    </body>
+</html>

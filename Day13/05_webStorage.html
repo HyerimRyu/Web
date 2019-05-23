@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        <h3 id="aa"></h3>
+        <hr>
+        <h3 id="bb"></h3>
+
+        <script>
+            // 웹 스토리지: 웹문서가 데이트를 client의 컴퓨터에 저장하는 기법(일종의 쿠키(4KB))--웹스토리지는 5MB정보까지 저장 가능
+
+            // 웹 스토리지의 2가지 객체
+            // 1. localStorage - 브라우저가 종료되어도 저장 / 다른 도메인에서는 정보공유 불가능
+            if( !localStorage.cnt ){ //cnt라는 키값이 저장된 적이 있는지
+                localStorage.cnt=0; //처음으로 cnt값 지정
+            }
+
+            localStorage.cnt=parseInt(localStorage.cnt)+1;
+
+            // 화면에 출력
+            document.getElementById('aa').innerHTML=localStorage.cnt+" 번째 방문입니다."
+
+            // 2. sessionStorage - 브라우저가 종료되면 데이터 소실
+            if( !sessionStorage.cnt){
+                sessionStorage.cnt=0;
+            }
+            sessionStorage.cnt=parseInt(sessionStorage.cnt)+1;
+            document.getElementById('bb').innerHTML=sessionStorage.cnt+"번째 방문입니다."
+        
+        </script>
+
+        <hr>
+        <hr>
+
+        <h2>웹 저장소로 로그인 정보 기억하기..</h2>
+        <label>아이디 : <input type="text" id="in_id"></label><br>
+        <label>비밀번호 : <input type="text" id="in_pw"></label><br>
+        <label><input type="checkbox" id="cb1">아이디 저장</label>
+
+        <button onclick="login()">로그인</button>
+
+        <script>
+
+            function login(){
+
+                 // 저장할 아이디와 패스워드 값 얻어오기
+            var id=document.getElementById('in_id').value;
+            var pw=document.getElementById('in_pw').value;
+
+            // 아이디 저장여부 체크(체크박스 확인)
+            if(document.getElementById('cb1').checked){
+                // 브라우저가 종료되어도 id, pw가 존재하도록 localStorage에 저장
+                localStorage.setItem('id', id); //key, value
+                localStorage.setItem('pw',pw);
+                localStorage.setItem('cb1',true);
+
+                sessionStorage.clear();
+            }else{
+
+                // 브라우저를 종료할 때까지는 저장해줌
+                sessionStorage.setItem('id', id);
+                sessionStorage.setItem('pw', pw);
+                sessionStorage.setItem('cb1', false);
+
+                // 혹시 기존에 localStorage에 저장된 것이 있을 수 있으므로 
+                localStorage.clear();
+
+            }
+
+            }
+
+           
+        
+        </script>
+
+        <hr>
+        <a href="http://www.naver.com">네이버</a>
+
+
+        <script>
+            function loadLoginInfo(){
+
+                // 로컬 스토리지에 id가 저장되어 있는지 
+                if( !localStorage.getItem('id')){
+                    
+                }else{
+                    // 로컬저장소에서 읽어와서 표시하기
+                    document.getElementById('in_id').value=localStorage.getItem('id');
+                    document.getElementById('in_pw').value=localStorage.getItem('pw');
+                    document.getElementById('cb1').checked=localStorage.getItem('cb1');
+                    alert();
+                }
+
+            }
+
+            loadLoginInfo();
+        </script>
+    
+
+
+
+    </body>
+</html>

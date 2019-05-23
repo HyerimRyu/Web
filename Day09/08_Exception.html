@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        
+            // 예외처리:에러 발생 시 프로그램이 다운되지 않도록 하는 기법
+            //alrt('aaa'); -> 여기서 에러가 나면 다음줄 진행 안돼
+
+            try{
+                aler('aaa'); //error
+            }catch(e){
+                document.write(e+"<br>");
+
+            }
+        
+            document.write("예외처리");
+
+            // finally
+            try{
+                aaa(); //error
+            }catch(e){
+                document.write(e+"<br>");
+            }finally{
+                document.write("에러가 나던 말던~<br>");
+            }
+
+            //function aaa(){document.write("aa");}
+
+            // throw - 일부러 에러를 발생시켜서 예외 상황 처리
+            try{
+                var a=10;
+                var b=15;
+                var c=a-b;
+
+                if(c<0) throw "음수 결과는 안됨!";
+                
+                document.write("결과: "+c+"<br>");
+            }catch(e){
+                document.write(e+"<br>");
+            }
+            
+
+
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>

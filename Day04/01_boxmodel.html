@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Box Model</title>
+
+        <!-- css 스타일 적용 -->
+        <style>
+            /* 이 안에서는 css의 문법 사용 */
+            p.border{
+                /* 경계선 스타일 */
+                border-style: solid;
+
+                border-bottom-style: dotted;
+
+                /* 경계선의 두께 설정가능 */
+                border-width: 2px;
+                border-top-width: 8px;
+
+                /* 색상 */
+                border-color: antiquewhite;
+                border-right-color: aquamarine;
+
+                /* 모서리 둥글게 */
+                border-radius: 20px;
+                border-bottom-right-radius: 5px;
+                border-top-left-radius: 5px;
+
+                /* 경게선 축약형 표현 */
+                border: 30px solid transparent;
+
+                /* 경계선에 이미지 : css 에서 다른 경로는 무조건 'url'*/
+                border-image-source: url('border.png');
+                border-image-slice: 30 30; /*너비, 높이*/
+                border-image-repeat: round; /*round 반복*/
+
+                /* 요소 크기 */
+                width: 70%; /*부모의 70% 크기*/
+                height: 200px; /*높이는 부모(body) 사이즈가 얼마인지 몰라서: 높이는 스크롤링 되므로 몰라. 높이 알고싶으면 body의 높이 사이즈를 지정하고 % 써야해 : 그래서 높이는 보통 % 안써!*/
+
+                /* 가운데 정렬은 margin lef,right 둘 다 auto *가로 사이즈가 여유가 있을 때* */
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+
+            /* inline 요소는 width, height이 안됨 */
+            a{border: 1px dotted blue; width: 200px;}
+            em{border: 1px dotted blue; width: 200px;}
+
+            /* inline 중에서 크기 조절 가능한 요소:img */
+            img{border: 1px dashed red; width: 400px;}
+            input{width: 100%; background-color: aqua;}
+
+        </style>
+
+        <style>
+        
+            /* 두 요소의 마진 알아보기 */
+            #p1{background-color:violet; margin: 0px; height: 50px; margin-bottom: 0px;}
+            #p2{background-color:olive; margin: 0px; height: 50px; margin-top: -20px; width: 50%;}
+
+            /* 배경이미지 */
+            p#background{
+                background-color: green;
+                background-image: url('./back.jpg');
+                background-repeat: no-repeat;
+                background-size: 200px 100px;
+
+                background-position: center;
+                background-position: top right;
+
+                /* 축약형 */
+                background: pink url('image.png') no-repeat center;
+
+                height: 300px;
+                border: 2px solid grey;
+
+                padding-left: 30px;
+                padding: 10px 20px 30px 50px;
+                padding: 50px 100px;
+                padding: 30px;  /*상하좌우 다*/
+            }
+
+            p#aaa{
+                width: 60%;
+                height: 300px;
+                border: 3px solid blue;
+                overflow: scroll;
+                margin-left: auto;
+                margin-right: auto;
+
+                background-image: url('image.png');
+                background-size: 200px 100px;
+                background-repeat:no-repeat; 
+
+                background-attachment: scroll; /*기본*/
+                background-attachment: local; /*컨텐츠에 삽입된 것 같아*/
+                background-attachment: fixed;
+
+                background-position:center;
+                background-attachment: fixed;
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+        
+        <!-- 경계선 : border -->
+        <!-- alt + z : lorem 자동 줄바꿈 해줘 -->
+        <p class="border">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero magni hic itaque aspernatur perspiciatis velit vero eaque consectetur consequatur placeat consequuntur doloribus, maxime ut dolore molestiae atque quibusdam est! At?
+        </p>
+
+        <!-- 요소 크기에 대한 고찰 -->
+        <!-- inline 요소는 width가 안됨 -->
+        <a href="http://www.naver.com">naver</a>
+        <em>Hello</em>
+
+        <!-- inline 요소 중에 width 크기 조절 되는 것 -->
+        <img src="./image.png" alt="image">
+        <input type="text">
+
+        <hr>
+        <!-- 마진에 대한 고찰 -->
+        <div class="margin">
+            <p id="p1">p1</p>
+            <p id="p2">p2</p>
+        </div>
+
+        <!-- 배경이미지 -->
+        <p id="background">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quam laudantium nam ad ipsum ex labore deserunt obcaecati, itaque nemo illo impedit rem quidem, exercitationem, voluptates voluptatibus ea in amet.
+        </p>
+
+        <!-- 배경 attachment -->
+        <p id="aaa">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab pariatur autem voluptatum, omnis at minima, qui aliquid laboriosam neque nostrum quis delectus sunt repellat quam doloremque. Cum ipsum odit earum?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, quisquam? Voluptatibus eveniet dignissimos ipsam ad, consequatur doloribus, nisi sint culpa similique enim rem ex! Consequuntur laborum commodi sit tempore Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita officiis sed alias neque voluptatibus quos assumenda. Natus reprehenderit corrupti libero dolorem non sapiente, in dolores quis excepturi error numquam ullam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos sunt aliquam officiis ea ipsam, ducimus eos! Sunt molestias, et minus qui impedit, sed accusantium ducimus repellat laudantium dolor dolorum repudiandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia molestiae quos exercitationem dolorum aspernatur! Pariatur facere dolore minima aperiam exercitationem suscipit, nemo beatae fugiat ipsam, delectus fuga quaerat eos cum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum eum minus similique perferendis voluptatum, molestiae beatae. Consequatur doloremque adipisci aliquid molestias? Obcaecati perspiciatis sapiente neque voluptas culpa quidem maiores sit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ex blanditiis. Animi cupiditate quam ipsa similique numquam a, minima possimus, dolor libero corporis nisi laboriosam veritatis dolorem inventore ipsum nulla. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod iusto asperiores labore deserunt placeat accusantium error, sequi quia, dicta nostrum nisi, facilis voluptates et. Ullam iste facilis eum amet aliquam! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit et beatae alias, laboriosam omnis, quisquam quis perspiciatis, illo labore maxime dicta similique obcaecati dolor sequi officia! Similique magni ipsum ipsam!
+        </p>
+
+    </body>
+</html>

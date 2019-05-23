@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>02_test</title>
+
+        <!-- 스타일을 적용하는 3가지 방법 -->
+        <!-- 1. 외부 스타일 시트 -->
+        <!-- 2. 내부 스타일 시트 -->
+        <!-- 3. 인라인 스타일 시트 -->
+
+        <!-- 위의 3가지 방법 내에서도 우선순위 존재!!!!!!!!!! -->
+        <!-- 같은 요소에 같은 속성의 스타일을 적용할 때 우선순위 영향 -->
+
+        <!-- 내부/외부 스타일 적용은 작성 순서에 따라서 <뒤>에 있는걸로 바껴 -->
+        <!-- 인라인 스타일이 항상 최우선!!!!!!! 항상 최종적으로 적용되는 스타일. 우선순위 끝판왕(인라인은 순서와 상관없어) -->
+
+        <!-- 외부 스타일 적용 -->
+        <link rel="stylesheet" href="./02_test.css">
+
+        <!-- 내부 스타일 적용 -->
+        <style>
+            p{color: thistle;}
+        </style>
+
+        
+
+    </head>
+
+    <body>
+        <!-- 인라인 스타일 -->
+        <p style="color:teal;">Hello World</p>
+    </body>
+</html>

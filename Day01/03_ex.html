@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>03_ex</title>
+    </head>
+
+    <body>
+        <!-- 리스트 -->
+        <ul id="list1">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+
+        <ol>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ol>
+
+        <dl>
+            <dt>aaa</dt>
+            <dt>이것은 Definition Data 입니다.</dt>
+            <dt>bbb</dt>
+            <dt>이것은 Definition Data 입니다.</dt>
+            <dt>ccc</dt>
+            <dt>이것은 Definition Data 입니다.</dt>
+
+        </dl>
+
+        <hr>
+        <!-- anchor 요소:링크로 특정위치로 점프 -->
+        <!-- a 요소로 점프하는 방법 3가지 -->
+
+        <!-- 1. 특정사이트로 이동 : 다른 서버로의 페이지로-->
+        <a href="http://www.naver.com">NAVER</a>
+
+        <!-- 2. 내 사이트의 특정페이지로 이동 : 내 서버의 다른 문서-->
+        <a href="./00_ex.html" target="_blank">상대주소: 같은 폴더</a>
+
+        <br>
+        <!-- 3. 같은 페이지 안에 특정 위치로 이동 -->
+        <!-- id 값이 list1 인 곳으로 이동 꼭 # 붙여 -->
+        <a href="#list1">맨 위로</a>
+
+        <!-- 여러줄로 a 요소를 배치하고 싶다면.. -->
+        <!-- **************************************p안에 a넣어 : 요소는 지금처럼 중첩으로 쓰는 경우가 많아 -->
+        <p> <a href="">aaa</a>   </p>  
+        <p> <a href="">bbb</a>   </p>
+
+        <!-- 리스트 요소를 이용해서 -->
+        <!-- *************************************tab 이나 모든 요소의 기본 -->
+        <!-- list 안에 anchor넣기 -->
+        <ul>
+            <li><a href="">111</a></li>
+            <li><a href="">222</a></li>
+            <li><a href="">333</a></li>
+        </ul>
+
+        <!-- 이메일 링크 -->
+        <p><a href="mailto:hyerim0812@naver.com">hyerim0812@naver.com</a></p>
+
+        <!-- 이미지 보기 -->
+        <!-- ./는 내 폴더 -->
+        <p><a href="https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%ED%98%B8%EA%B5%AC%EC%9D%98+%EC%97%B0%EC%95%A0#">이미지 링크</a></p>
+        <!-- 상대주소 -->
+        <img src="./seolak.jpg" alt="설악산">
+        <!-- 절대주소 : 사이트 주소까지 -->
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fpost.phinf.naver.net%2F20160316_150%2Fdtd60_1458133068453czO6P_PNG%2Fmug_obj_201603162157517745.jpg&type=b400" alt="" width="200">
+        <br>
+        <img src="seolak.jpg" alt="" width="200%" height="100">
+        <img src="aaa.jpg" alt="aaa이미지">
+
+        <!-- 다운로드 -->
+        <!-- 경로에 한글문서 .hwp .zip 이런것들은 브라우저에서 못 보여주므로 다운로드 됨 -->
+
+
+
+
+        
+    </body>
+</html>

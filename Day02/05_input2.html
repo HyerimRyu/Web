@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>input 2</title>
+    </head>
+
+    <body>
+        
+        <input type="search"><br>
+        <input type="date">
+        <input type="number" min="5" max="10" step="2" value="4">
+
+        <hr>
+
+        <!-- input 요소에 새로 추가된 속성들 -->
+        <form action="">
+            <!-- 힌트 -->
+            <input type="text" placeholder="입력하세요"><br>
+            <!-- 반드시 입력해야 하는 input 요소 일 때  -->
+            <input type="text" name="" id="" required autofocus>
+
+            <!-- 읽기전용 -->
+            <input type="text" name="" id="" readonly value="홍길동">
+
+            <!-- 페이지 로드시 처음 포커스 받도록 -->
+            <input type="text" autofocus>
+
+            <!-- 최대 글자수 제한 -->
+            <input type="text" maxlength="5">
+
+            <!-- 자동완성 기능: autocomplete, list 속성 필요 -->
+            <!-- datalist라는 요소와 함께 사용 -->
+            <input type="text" autocomplete list="datas">
+
+            <!-- autocomplete으로 보여줄 데이터 리스트 -->
+            <datalist id="datas">
+                <option value="canada" label="캐나다"></option>
+                <option value="china" label="중국"></option>
+                <option value="korea" label="한국"></option>
+            </datalist>
+
+            <input type="submit">
+        </form>
+
+
+        <!-- 정규표현식(Regular Expression): pattern, required 속성과 함께 사용 -->
+        <!-- 유효성 검사  ex)전화 번호 아닌 숫자 적었을 때 막는거-->
+        <form action="">
+            전화번호: 
+            <input type="text" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4,5}" title="###-####-#### 형식으로 작성하세요">
+            <input type="submit">
+        </form>
+
+        <hr>
+        <!-- hidden: 사용자 입력여부와 상관없이 무조건 서버로 보낼 때 사용 -->
+        <form action="aaa.php" method="GET">
+            <input type="hidden" name="title" value="게시판">
+            <input type="text" name="name">
+            <input type="submit">
+        </form>
+
+
+        
+
+    </body>
+</html>

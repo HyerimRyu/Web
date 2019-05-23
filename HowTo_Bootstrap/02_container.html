@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <!-- 블럭요소 사용할 때 -->
+        <h2 style="background-color: aquamarine">this is heading element</h2>
+        <p style="background-color: plum">this paragraph element</p>
+
+        <!-- 브라우저의 너비가 너무 길어지면 레이아웃 배치가 용이 -->
+        <!-- 네이버 웹을 보면 일정 사이즈 이상 늘어나지 않음 -->
+        <div style="width: 980px" >
+            <h2 style="background-color: aquamarine">this is heading element</h2>
+            <p style="background-color: plum">this paragraph element</p>
+        </div>
+
+        <!-- 가운데 정렬을 하려면 추가적인 css작업이 요구됨 -->
+        <!-- 그래서 bootstrap은 이를 좀 편하게 스타일링 할 수 있는 .container[클래스 선택자]를 제공 -->
+        <!-- .container를 지정하면 자동 가운데 정렬이며 너비는 940px로 지정됨(좌우여백 padding) -->
+        <!-- 자동으로 반응형 웹으로 너비 조정 -->
+        <div class="container" >
+            <h2 style="background-color: aquamarine">this is heading element</h2>
+            <p style="background-color: plum">this paragraph element</p>
+        </div>
+
+        
+        <div class="container">
+            <!-- 한 줄(row)에 요소들 배치 : ***class="row"쓰면 안의 요소들이 inline-block으로 바뀜-->
+            <div class="row">
+                <h2>Hello</h2>
+                <h2>Nice to meet you</h2>
+                <p>bootstrap is good library</p>
+
+                <!-- 인라인 요소도 인라인 블록이 됨 : 너비조절이 됨! -->
+                <button>aaaa</button>
+                <button class="btn btn-primary">bbbb</button>
+                <a href="" style="background-color: purple; width: 200px;">good</a>
+
+            </div>
+            <!-- .row를 지정하면 .container가 가지고 있는 좌우여백 padding이 무시됨 -->
+
+            <!-- 이렇게 .row를 사용하면 간단하게 레이아웃배치를 할 수 있음 -->
+            <div class="row">
+                <aside style="background-color: salmon; width: 15%">Left menu</aside>
+                <article style="background-color: tan; width: 70%">main content</article>
+                <aside style="background-color: steelblue; width: 15%">Right region</aside>
+            </div>
+
+            <!-- 안의 요소들을 균등사이즈로 배치하고 싶을 수 있음 -->
+            <!-- 균등한 넓이를 위해 width 를 사용하기에 불편할 수 있음 -->
+            <div class="row mt-3">
+                <div class="col mr-3" style="background-color: thistle;">aaa</div>
+                <div class="col mr-3" style="background-color: yellow;">bbb</div>
+                <div class="col" style="background-color: thistle;">ccc</div>
+            </div>
+
+            <!-- 부트스트랩은 row를 사용할 때 -->
+            <!-- col의 크기를 지정할 수 있음. 이때 사용하는게 Grid레이아웃이라는 방식을 사용함 -->
+            <!-- 한 줄을 12칸 조각으로 구분하여 크기 지정함 -->
+            <div class="row mt-3">
+                <div class="col-md-3" style="background-color: thistle;">aaa</div>
+                <div class="col-md-5" style="background-color: yellow;">bbb</div>
+                <div class="col-md-4" style="background-color: thistle;">ccc</div>
+            </div>
+
+             <div class="row mt-3">
+                <div class="col-sm-3" style="background-color: thistle;">aaa</div>
+                <div class="col-sm-5" style="background-color: yellow;">bbb</div>
+                <div class="col-sm-4" style="background-color: thistle;">ccc</div>
+            </div>
+        </div>
+
+        <!-- 940px로 고정하는  .container 대신에 -->
+        <!-- 브라우저 넓이에 따라 커지는: ex)쇼핑몰에서 많이 쓰더라 fluid(유동적인)  -->
+        <div class="container-fluid">
+            <h2 style="background-color: aquamarine">this is heading element</h2>
+            <p style="background-color: plum">this paragraph element</p>
+
+        </div>
+
+        <!-- 3단분할 레이아웃을 width로 지정하는것 보다는 위에서 배운 col-xx-xx로 하는 것을 권장 -->
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-sm-3" style="background: violet;">aaa</div>
+                <div class="col-sm-7" style="background: steelblue;">bbb</div>
+                <div class="col-sm-2" style="background: teal;">ccc</div>
+            </div>
+
+        </div>
+
+        
+
+    </body>
+</html>

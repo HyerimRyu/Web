@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+         <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- 기본적인 리스트뷰 -->
+        <div class="container mt-5">
+            <ul class="list-group">
+                <li class="list-group-item">aaa</li>
+                <li class="list-group-item">bbb</li>
+                <li class="list-group-item active">ccc</li>
+            </ul>
+        </div>
+        <hr>
+
+        <!-- 선택 가능한 리스트뷰 -->
+         <div class="container mt-5">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="">aaa</a></li>
+                <li class="list-group-item"><a href="">bbb</a></li>
+                <li class="list-group-item"><a href="">ccc</a></li>
+            </ul>
+        </div>
+        <hr>
+
+        <!-- 아이템을 선택하는 느낌의 리스트뷰 -->
+        <div class="container mt-3">
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action" href="">aaa</a>
+                <a class="list-group-item list-group-item-action text-primary" href="">aaa</a>
+                <a class="list-group-item list-group-item-action disabled" href="">aaa</a>
+
+            </div>
+
+        </div>
+        
+        <hr>
+        <!-- 리스트뷰의 아웃라인 없애기 -->
+        <div class="container mt-3">
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action" href="">aaa</a>
+                <a class="list-group-item list-group-item-action text-primary" href="">aaa</a>
+                <a class="list-group-item list-group-item-action disabled" href="">aaa</a>
+
+            </div>
+
+        </div>
+
+        <!-- 수평리스트뷰 -->
+           <div class="container mt-3">
+            <div class="list-group list-group-horizontal">
+                <a class="list-group-item list-group-item-action" href="">aaa</a>
+                <a class="list-group-item list-group-item-action text-primary" href="">aaa</a>
+                <a class="list-group-item list-group-item-action disabled" href="">aaa</a>
+
+            </div>
+        </div>
+
+        <hr>
+        <!-- 아이템별 색상지정 -->
+        <div class="container mt-3">
+            <div class="list-group list-group">
+                <a class="list-group-item list-group-item-primary" href="">aaa</a>
+                <a class="list-group-item list-group-item-secondary" href="">aaa</a>
+                <a class="list-group-item list-group-item-warning" href="">aaa</a>
+                <a class="list-group-item list-group-item-danger" href="">aaa</a>
+                <a class="list-group-item list-group-item-success" href="">aaa</a>
+                
+
+            </div>
+        </div>
+        <hr>
+
+        <!-- 리스트뷰의 아이템에 배지달기 -->
+        <div class="container">
+            <ul class="list-group">
+                <li class="list-group-item">aaa <span class="badge badge-info">10</span></li>
+                <li class="list-group-item">aaa <span class="badge badge-primary">10</span></li>
+                <li class="list-group-item">aaa <span class="badge badge-warning">10</span></li>
+                <!-- 보통 배지는 오른쪽 끝에 배치되므로 -->
+                <li class="list-group-item d-flex justify-content-between">aaa <span class="badge badge-warning">new</span></li>
+                <li class="list-group-item d-flex justify-content-between">aaa <span class="badge badge-danger badge-pill">new</span></li>
+            </ul>
+
+        </div>
+        
+    </body>
+</html>

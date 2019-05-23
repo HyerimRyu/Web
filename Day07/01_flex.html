@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <style>
+            /* flex 는 부모 요소에 display 속성으로 지정 */
+            div#container{
+                  /* 자식요소들의 배치방식을 제어하는 스타일 */
+                display: flex;   /*마치 inline-block처럼 자식요소들의 width가 wrap이 됨*/
+
+                /* flex에 대한 속성들 */
+
+                /* 1. flex-wrap */
+                /* 기본적으로 flex를 쓰고 자식 요소가 많으면 부모 사이즈를 넘어서게 됨 */
+                /* 이를 안 넘어가게 자동 줄바꿈 하는게 스타일: flex-wrap  */
+                flex-wrap: wrap;
+                flex-wrap: nowrap; /*기본*/
+                flex-wrap: wrap-reverse; /*최신글이 위에 노출될 때 이거 써: 새로운 줄이 위로 생김*/
+
+                flex-wrap: nowrap;
+
+                /* 2. flex-direction : 배치방향 설정 like orientaion */
+                /* 수평[row:기본], 수직[column] */
+                flex-direction: column;
+                flex-direction: column-reverse; /*최신글이 제일 위로*/
+
+                /* height: 300px; 부모높이 지정 */
+
+                flex-direction: row; /*기본 수평배치*/
+                flex-direction: row-reverse; /*반대배치 오른쪽에 붙어서*/
+
+                /* 3. -direction, -wrap을 축약형으로 쓰는 속성 */
+                flex-flow: row nowrap;
+
+                /* 4. 정렬 */
+                /* 정렬에 사용하는 2가지 속성 */
+                /* 4.1 justify-content : direction 방향과 같은 방향의 정렬 */
+                flex-direction: row;  /*수평배치 일 때 수평정렬*/
+                justify-content: center;
+                justify-content: flex-end; /*right(row-reverse면 left)*/
+                justify-content: flex-start; /*left(row-reverse면 right)*/
+                justify-content: space-between; /*요소 사이사이의 공백을 넓혀서 배치*/
+                justify-content: space-around; /*요소를 둘러싸는 공백을 균등하게 자동배치*/
+
+                height: 300px;
+                flex-direction: column; /*수직배치 수직정렬*/
+                justify-content: center;
+                justify-content: flex-end; /*bottom*/
+                justify-content: flex-start;
+                justify-content: space-between;
+                justify-content: space-around;
+
+
+                justify-content: flex-start;
+               
+                
+
+                /* 4.2 align-items : direction 방향의 교차축 정렬 */
+                flex-direction: row; /*수평배치 수직정렬*/
+                align-items: center;
+                align-items: flex-end;
+                align-items: stretch; /*자식의 높이가 부모의 높이보다 작을 때*/
+                align-items: baseline; /*각 요소들의 써 있는 글씨의 사이즈가 다를 때 글씨의 아래 라인을 기준으로 정렬*/
+
+                flex-direction: column; /*수직배치 수평정렬*/
+                align-items: flex-start;
+                align-items: center;
+                align-items: flex-end;
+                align-items: stretch;
+                align-items: baseline; /*써도 무의미 맞춰지지 않아*/
+
+                /* align-items는 -reverse가 아무 의미 없음 */
+
+
+                border: 1px dotted red;
+            }
+
+            div#container>div{
+                background-color: aquamarine;
+                margin: 10px;
+                padding: 20px;
+
+                width: 100px;
+                height: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <!-- flex 스타일[레이아웃 배치에 관련된 스타일]: 자식 요소들의 배치[layout]를 유연하게 하기 위한 스타일 -->
+        <!-- flext 쓰면 float 잘 안쓰게 돼 -->
+        <!-- flex 스타일을 부모 요소의 display 속성으로 지정함 : android의 LinearLayout 클래스와 비슷한 사용법 -->
+        <div id="container">
+            <div>aa</div>
+            <div style="font-size: 30px;">bb</div>
+            <div>cc</div>
+
+            <!-- <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div> -->
+        </div>
+        <hr>
+
+        <!-- 요소들을 가운데 정렬하기 -->
+        <div id="aa">
+            <h2>Hello</h2>
+            <p>This is flex layout</p>
+            <style>
+                div#aa{
+                    height: 200px;
+                    background-color: brown;
+                    color: wheat;
+
+                    display: flex;
+                    flex-direction: column;
+                    
+                    justify-content: center; /*수평: direction이 row라서*/
+                    align-items: center; /*수직*/
+
+                   
+                }
+            </style>
+        </div>
+
+    </body>
+</html>

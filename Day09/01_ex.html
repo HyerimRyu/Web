@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+            //JS에서 객체의 2가지 종류
+            // 1. 내장객체: 이미 설계되어있는 객체, new만 하면 돼 ex)new Date(), new Array() //이미 객체인 것도 있어 document, 
+            // 2. 사용자 정의 객체
+        
+            // 사용자 정의 객체를 사용하는 2가지 방법[ECMA5 버전부터 class 키워드 생겼어-그래서 지금은 3가지 방법이야]
+            // 1) 리터럴 객체[ 객체를 생성하면서 설계 ]
+            var person={
+                // 멤버변수 : 속성 property   <;가 아니라 ,로!>
+                name: "sam", 
+                age: 20,
+
+                // 멤버함수 : 메소드 method
+                show: function(){
+                    //document.write("aaa<br>");
+                    document.write("show : "+ this.name + ","+this.age+"<br>");
+                }
+
+                // function show(){}; --> 이거 에러!!
+            };
+
+            document.write("name : "+person.name+", ");
+            document.write("age :"+ person.age+"<br>");
+
+            person.show();
+
+            // 같은 능력을 가진 객체를 또 만드려면
+            var person2={
+                name:"robin",
+                age:25,
+
+                show:function(){
+                    document.write("show: "+ this.name+","+this.age+"<br>");
+                },
+
+                add:function(a,b){
+                    var c=a+b;
+                    document.write("add:"+c+"<br>");
+                }
+
+            }
+            person2.show();
+            person2.add(5,3);
+
+            person2.show(4,8); //error 아님 값만 무시됨
+            //person.add(4,8); //error - 다음줄 실행 안돼
+
+            // JS는 유연하기 때문에 객체 생성 후 속성, 메소드 추가 가능함
+            person.tel="01023456948";
+            document.write("name : "+person.name+",");
+            document.write("age : "+person.age+",");
+            document.write("tel : "+person.tel+"<br>");
+
+            person.out=function(){
+                document.write("out : "+this.name+","+this.age+","+this.tel+"<br>");
+            }
+
+            person.out();
+
+            // 심지어 이렇게도 멤버가 추가됩니다.
+            document.write(person.addr); //새로 속성이 추가되고 값이 설정되지 않은 상태가 됨
+
+            document.write("<hr>");
+
+
+            // 2) 생성자 함수를 이용하는 방법 [자바와 비슷한 개념] 
+            // 객체의 설계도면 만들기
+            function Student(){
+                // 멤버변수 
+                this.name="aaa";
+                this.age=20;
+                this.major="android";
+
+                // 메소드
+                this.show=function(){
+                    document.write("student : "+this.name+","+this.age+","+this.major+"<br>");
+                }
+
+                this.setMembers=function(name, age, major){
+                    this.name=name;
+                    this.age=age;
+                    this.major=major;
+                }
+
+                addr="seoul"; //전역변수
+                var aaa="aaa"; //지역변수
+            }
+
+            // 객체 생성
+            var s=new Student();
+            s.show();
+            document.write("addr : "+s.addr+"<br>");
+            document.write("addr : "+addr+"<br>");
+
+            // 2번째 객체 생성
+            var s2=new Student();
+            s2.name="bbb";
+            s2.age=25;
+            s2.major="frontEnd";
+            s2.show();
+
+            // 멤버변수에 값을 대입하는 기능(메소드)가 있으면 좋겠지
+            var s3=new Student();
+            s3.setMembers("kim", 30, "publisher");
+            s3.show();
+
+            // 객체를 생성하면서 멤버값을 전달하는게 더 효과적!!!
+            // 생성자 : constructor!!
+            function Stu(name, age, major){
+                this.name=name;
+                this.age=age;
+                this.major=major;
+
+                this.show=function(){
+                    document.write("stu : "+this.name+","+this.age+","+this.major);
+                }
+            }
+
+            var stu=new Stu("sam", 20, "php");
+            stu.show();
+
+            // 추가적인 내용
+            document.write("<hr>");
+
+            // in 키워드 : 연산자 
+            document.write('name' in stu); //name이라는 변수가 stu 안에 있냐?
+            document.write("<br>");
+            document.write('addr' in stu);
+
+            // 객체의 멤버로 객체가 있을 수 있음 : 객체 안의 객체**************하이브리드에서 많이 써
+            document.write("<hr>");
+
+            var flight={
+                airline:"Korean air",
+                number:777,
+                arrival:{
+                    nation:"japan", 
+                    city:"tokyo"
+                    }
+            }
+
+            document.write(flight.arrival.city+"<br>");
+
+            // Object.create() : 객체의 clone 기능
+            var p1={
+                name:"aaa",
+                age:20,
+                show:function(){
+                    document.write("show:"+this.name+","+this.age+"<br>");
+                }
+            }
+
+            // clone.. p2에서 p1의 기능 가져오고 싶어 복제본을 만든거 : 두 개가 달라
+            var p2=Object.create(p1);
+
+            p1.show();
+            p2.show();
+
+            p2.name="bbb";
+            p2.age=30;
+
+            p1.show();
+            p2.show();
+
+            // 접근제한자 : 캡슐화(정보 은닉)
+            // 클로저 변수를 이용하여 정보은닉 효과를 냄
+            function Test(){
+                var name; //클로저 지역변수:함수가 끝나도 메모리가 살아있는 얘
+                var age;
+
+                // 지역변수를 클로저 변수로 만들려면 이너함수에서 사용하면 됨
+                this.show=function(){
+                    document.write("show:"+name+","+age+"<br>");
+                }
+
+                this.setName=function(n){
+                    name=n;
+                }
+
+                this.getName=function(){
+                    return name;
+                }
+                this.setAge=function(a){
+                    age=a;
+                }
+            }
+
+            var t=new Test();
+            t.setName("sam");
+            t.setAge(20);
+            t.show();
+            
+
+
+        </script>
+
+
+    </head>
+
+    <body>
+        
+    </body>
+</html>

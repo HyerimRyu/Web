@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+          <!-- jQuery 라이브러리 추가 : CDN -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+          <script>
+          $(document).ready(function(){
+
+            $('#b1').on('click', function(){
+                $.get('test.txt', function(data, status){
+                    $('#ta').val(data +"\n\nSTATUS:"+status+"\n");
+                });
+
+                $.get('getTest2.php?name=SAM&pw=1234', function(data, status){
+                    $('#target').html(data);
+                });
+            });
+
+            $('#b2').on('click', function(){
+
+                $.post('test.txt', function(data, status){
+                    $('#ta').val(data +"\n\nSTATUS:"+status+"\n");
+                });
+
+                // 메소드의 두 번째 파라미터 : 보낼 데이터를 가진 객체
+                var a={name:"Robin", pw:"34456"};   //JS의 리터럴 객체
+                $.post('postTest2.php',a,function(data, status){
+                    $('#target').html(data);
+                });
+
+                // 파라미터를 보내는 다른 방식
+                $.post('postTest2.php', a).done(function(data){
+                    $('#pp').html(data);
+
+                });
+                
+            });
+
+            //////////////////////////*************여러 방식들 중 ajax 방식을 더 많이 써(가독성이 좋아) ************
+            $('#b3').on('click', function(){
+                // 파라미터는 1개: 객체로 만들어서
+                $.ajax({
+                    type:"GET", 
+                    url:"test.txt",
+                    success:function(data){
+                        $('#ta').val(data);
+                    },
+                    error:function(error){
+                        $('#ta').val(error.responseText);
+                    }
+                });
+// ajax안나와. 수정하기 *******
+                $.ajax( {
+                    type:"POST",
+                    url:"postTest2.php",
+                    data:"name=Ryu&pw=2019",
+                    success:function(){
+                        $('#target').html(data);
+                    },
+                    error:function(error){
+                        $('#target').html(error.responseText);
+
+                    }
+
+                } );
+
+                
+            });
+
+            $('#b4').on('click', function(){
+                // 서버로 부터 받은 데이터를 특정요소에서 직접 읽어들이도록..
+                $('#ta').load('test.txt');
+
+                $('#target').load('index.html');
+
+                // 문서 안에서 특정 요소만 읽어 올 수 있어
+                $('#pp').load('test.html #p1');
+            });
+          });
+          
+          </script>
+
+
+    </head>
+
+    <body>
+
+        <p>
+
+        <button id="b1">get method</button>
+        <button id="b2">post method</button>
+        <button id="b3">ajax method</button>
+        <button id="b4">load method</button>
+
+        </p>
+
+        <textarea id="ta" cols="50" rows="5"></textarea>
+        <div id="target"></div>
+
+        <hr>
+
+        <h2 id="pp"></h2>
+        
+    </body>
+</html>

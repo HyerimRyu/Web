@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <style>
+            img{width: 300px; height: 200px;}
+        </style>
+
+        <div class="container mt-3">
+            <img src="./images/moana01.jpg" alt="moana01">
+        </div>
+        <hr>
+
+        <!-- 부트스트랩을 이용해서 이미지의 틀 모양 이쁘게: round conner, circle, thumbnail -->
+        <div class="container mt-3">
+            <img class="rounded" src="./images/moana01.jpg" alt="moana01">
+        </div>
+        <hr>
+
+        <div class="container mt-3">
+            <img class="rounded-circle" style="width:200px;" src="./images/moana01.jpg" alt="moana01">
+        </div>
+        <hr>
+
+        <div class="container mt-3">
+            <img class="img-thumbnail" src="./images/moana01.jpg" alt="moana01">
+        </div>
+        <hr>
+
+        <!-- float 정렬 -->
+        <!-- 이미지를 좌우에 붙이기 -->
+        <div class="container mt-3">
+            <img class="rounded float-left" src="./images/moana01.jpg" alt="moana01">
+            <img class="rounded float-right" src="./images/moana02.jpg" alt="moana02">
+            <!-- float 사용하면 뒤에 요소들이 딸려 올라감 주의!! -->
+            <h2>MOANA MOANA MOANA</h2>
+        </div>
+
+        <!-- float의 영향의 안 받으려면 clear -->
+        <div style="clear:both;"></div>
+        <hr>
+
+        <!-- 가운데 정렬 -->
+        <div class="container mt-3">
+            <!-- style을 이용하는 방법 -->
+            <img style="display: block; margin-left: auto; margin-right: auto;" class="img-thumbnail" src="./images/moana01.jpg" alt="moana01">
+            <!-- 부트스트랩에서는 더 쉬워~ -->
+            <img  class="img-thumbnail d-block mx-auto" src="./images/moana01.jpg" alt="moana01">
+        </div>
+        <hr>
+
+
+        <!-- 별외 내용: 커다란 회색 박스 : header 영역 같은 느낌 -->
+        <div class="jumbotron text-center">
+            <h2>Bootstrap Test</h2>
+            <p>Bootstrap is the most popural library and framework</p>
+        </div>
+
+
+        
+    </body>
+</html>

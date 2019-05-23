@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+         <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ 
+    </head>
+
+    <body>
+
+        <!-- 게시판의 페이지 이동을 위한 버튼의 부트스트랩 스타일 -->
+        <div class="container mt-5">
+
+            <ul class="pagination">
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+            </ul>
+
+            <!-- 보통은 페이지번호 양 끝에 prev, next버튼이 있는 경우도 있음 -->
+            <ul class="pagination">
+                <!-- 페이지번호 선택표시 .active -->
+                <li class="page-item"><a href="" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item active"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+                <!-- 사용불가버튼 -->
+                <li class="page-item disabled"><a href="" class="page-link">Next</a></li>
+            </ul>
+
+            <!-- 선택에 따라 active를 바꾸는것은 js코드를 이용 -->
+
+            <ul class="pagination pagination-sm">
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+            </ul>
+
+            <ul class="pagination pagination-lg">
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+            </ul>
+        </div>
+
+        <!-- 페이지네이션의 정렬[가로축 정렬] -->
+        <div class="container">
+            <!-- default [왼쪽정렬] -->
+             <ul class="pagination">
+                <!-- 페이지번호 선택표시 .active -->
+                <li class="page-item"><a href="" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item active"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+                <li class="page-item disabled"><a href="" class="page-link">Next</a></li>
+            </ul>
+
+            <!-- 가운데 정렬 -->
+             <ul class="pagination justify-content-center">
+                <!-- 페이지번호 선택표시 .active -->
+                <li class="page-item"><a href="" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item active"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+                <li class="page-item disabled"><a href="" class="page-link">Next</a></li>
+            </ul>
+
+            <!-- 오른쪽 정렬 -->
+             <ul class="pagination justify-content-end">
+                <!-- 페이지번호 선택표시 .active -->
+                <li class="page-item"><a href="" class="page-link">Previous</a></li>
+                <li class="page-item"><a href="" class="page-link">1</a></li>
+                <li class="page-item"><a href="" class="page-link">2</a></li>
+                <li class="page-item active"><a href="" class="page-link">3</a></li>
+                <li class="page-item"><a href="" class="page-link">4</a></li>
+                <li class="page-item disabled"><a href="" class="page-link">Next</a></li>
+            </ul>
+
+        </div>
+        <hr>
+
+        <!-- 페이지네이션의 다른 모양 -->
+        <!-- 보통 웹페이지의 가장 상단에 메뉴형태로 사용 -->
+        <!-- 회색 배경에 / 구분선을 표시 -->
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="">Photo</a></li>
+                <li class="breadcrumb-item"><a href="">Summer 2019</a></li>
+                <li class="breadcrumb-item"><a href="">Italy</a></li>
+                <li class="breadcrumb-item active"><a href="">Rome</a></li>
+            </ul>
+
+        </div>
+        
+    </body>
+</html>

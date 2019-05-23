@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        
+        <script>
+        
+            // ECMA Script6(2015년도 발표 버전 :ES6 or ES2015)의 새로운 문법 :JS를 이루고 있는 Core프로그램
+
+            // 1. 변수 선언 키워드의 추가 : let, const(상수)
+
+            // 기존의 var변수
+            var a=10;
+            document.write(a+"<br>");
+
+            // 같은 이름의 변수를 또 선언하면?
+            var a=20;
+            document.write(a+"<br>"); //상관없어. 덮어쓰기 되서 잘 나와
+
+            // 새로운 let키워드로 변수 선언
+            let b=100;
+            document.write(b+"<br>");
+
+            // 같은 이름의 변수를 또 선언하면? --> let은 완전 에러!!!
+            // let b=30;
+            // document.write(b+"<br>");
+
+            b=200; //변수 이므로 값을 변경하는 것은 당연 가능
+            document.write(b+"<br>");
+
+            // const는 상수화된 변수...
+            const c=1000;
+            document.write(c+"<br>");
+
+            // c=2000; //error! 이 줄 이후부터 실행 안돼 (안나와 but 위에거까지 날라가진 않아. 위는 fatal error)
+            // document.write(c+"<br>");
+
+            // const c=1000; //당연히 에러!!!!
+            // document.write(c+"<br>");
+
+            // let, const 도 역시 동적 타이핑이므로 자료형이 자유로움
+            let d="aaa";
+            document.write(d+"<br>");
+
+            d=30;
+            document.write(d+"<br>");
+
+            d=true;
+            document.write(d+"<br>");
+
+            const e=new Date();
+            document.write(e+"<br>");
+
+            // var과 let, const의 결정적 차이
+            // 변수 인식하는 범위 차이!
+            // var은 지역변수와 전역변수 차이 -> 함수단위 function
+            // let과 const는 블럭 {}단위
+
+            // ex1)var 변수
+            var g=10;
+            if(true){
+                var g=20;
+                document.write(g+"<br>"); //출력 20
+            }
+
+            document.write(g+"<br>"); //출력20
+
+
+            // let은 {}를 지역으로 구분
+            let h=10;
+            if(true){
+                let h=20;
+                document.write(h+"<br>"); //출력20
+            }
+            document.write(h+"<br>"); //출력10
+
+            if(true){
+                var k=50;
+                document.write(k+"<br>");
+            }
+            document.write(k+"<br>");
+
+            if(true){
+                let n=30;
+                document.write(n+"<br>");
+            }
+            //document.write(n+"<br>");
+
+            // 반복문
+            for(var i=0; i<3; i++){
+                document.write("aaa");
+            }
+            document.write(i+"<br>"); //출력3
+
+            for(var j=0; j<3; j++){
+                document.write("aaa");
+            }
+            document.write(j+"<br>"); //출력3
+
+        </script>
+
+    </body>
+</html>

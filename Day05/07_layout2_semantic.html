@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>semantic</title>
+
+        <style>
+
+            /* *{margin: 0; padding: 0;} */
+        
+            body{
+                background: #efe5d0;
+                font-family: Helvetica, Arial, sans-serif;
+                margin: 0;
+            }
+
+            header{
+                background-color: cornsilk;
+                padding: 5px;
+                text-align: center;
+            }
+
+            aside{
+                background:plum;
+                padding: 16px;
+                display:table-cell;
+                
+            }
+
+            article{
+                background:palevioletred;
+                padding: 15px;
+                display:table-cell;
+                width: 100%;
+            }
+            footer{
+                background:palegoldenrod;
+                color:peru;
+                text-align: center;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <header>
+            <h1>My Blog</h1>
+        </header>
+
+        <aside>
+            <h2>Links</h2>
+           <ul>
+               <li><a href="http://www.naver.com" target="_blank">naver</a></li>
+               <li><a href="http://www.daum.net">daum</a></li>
+               <li><a href="http://www.lulullulululu.com">lulu</a></li>
+           </ul>
+           <figure>
+               <img src="./pome.png" alt="pome" width="85" height="85">
+               <figcaption>포메</figcaption>
+           </figure>
+        </aside>
+        <article>
+            <section>
+                <h2>Android native app</h2>
+                <p>네이티브 앱은 java 또는 kotlin으로 만듭니다.</p>
+            </section>
+            <section>
+                <h2>안드로이드 하이브리드 앱</h2>
+                <p>하이브리드 앱은 html,css, js로 만들고, + cordova를 통해 만듭니다.</p>
+            </section>
+        </article>
+        <footer>
+            Copyright &copy;2019 mrhi
+        </footer>
+    </body>
+</html>

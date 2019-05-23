@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>animation</title>
+
+        <style>
+            div#aa{
+                width: 50px;
+                height: 50px;
+                background-color: olive;
+                border-radius: 25px;
+
+                /* left, top같은 요소 위치를 지정하려면 */
+                /* 반드시 position 속성이 static이 아니어야해 */
+                position: absolute;
+
+                /* 애니메이션 적용: ********************이거 적용안하면 효과안나 */
+                animation-name: bounce;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+
+            }
+
+            /* 공 튀기는 모양 애니메이션 설계 */
+            @keyframes bounce{
+                from,to{
+                    bottom: 0px;
+                    animation-timing-function: ease-out; /*점점 빠르게*/
+                }
+
+                50%{
+                    bottom: 200px;
+                    animation-timing-function: ease-in; /*점점 느리게*/
+                }
+
+            }
+
+            /* 애니메이션 설계: 위에 position 필수 relative로 */
+            @keyframes myanim{
+                0%{left: 0px; top: 0px;} /*시작할 때*/
+                50%{left: 100px; top: 100px;}
+                100%{left: 0px; top: 0px;} /*끝날 때*/
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="aa"></div>
+
+    </body>
+</html>

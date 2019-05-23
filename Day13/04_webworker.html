@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+            <title></title>
+
+            <script>
+                function clickBtn(){
+                    var n=0;
+                    while(true){
+                        n++;
+                        document.getElementById('aa').innerHTML=n;
+                    }
+                }
+
+                var w;
+                function startWorker(){
+                    if(w==undefined){
+                        // Worker객체 생성하고 바로 시작
+                        w=new Worker("worker.js");
+
+                        // Worker가 보낸 메세지 받기
+                        w.onmessage=function(event){
+                            document.getElementById('aa').innerHTML=event.data;
+                        };
+
+                    }else{
+                        alert("이미 일꾼이 있습니다.");
+                    }
+                }
+
+                function stopWorker(){
+                    w.terminate();
+                    w=undefined;
+                }
+            
+            </script>
+    </head>
+    
+    <body>
+        
+        <!-- 워커 사용 안 했을 때 문제점 -->
+        <button onclick="clickBtn()">무한반복!</button>
+        <hr>
+        <h2 id="aa">결과</h2>
+        <!-- 별도 스레드가 카운트를 증가시키도록 작업 -->
+        <!-- 스레드를 JS언어에서는 웹 워커(web worker)라고 부름 -->
+        <button onclick="startWorker()">start worker</button>
+        <button onclick="stopWorker()">stop worker</button>
+
+        <button onclick="alert('click')">버튼</button>
+    </body>
+</html>

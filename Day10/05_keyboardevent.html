@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body onkeypress="keypress()">
+        <p>아무 키나 누르세요</p>
+        <input type="text" id="aa"><br>
+        <input type="text" id="bb"><br>
+        시프티키 : <input type="checkbox" id="cc"><br>
+
+        <!-- 키보드 이벤트 종류 : onkeypress, onkeydown, onkeyup [keydown, keyup은 다음 예제를 통해] -->
+        <!-- onkeypress 연습 -->
+        <script>
+
+            function keypress(){
+                
+                // event객체는 내장객체야(원래부터 있던)
+                var keycode=event.keyCode;
+
+                document.getElementById('aa').value=keycode;
+                // keycode는 아스키코드값이므로 이를 문자로 변환
+                document.getElementById('bb').value=String.fromCharCode(keycode);
+
+                document.getElementById('cc').checked=event.shiftKey;
+
+                // event.altKey;
+                // event.ctlKey;
+
+                // onkeypress()는 아스키코드만 되므로 방향키 입력 불가
+                // onleydown()은 키보드의 키패드를 기준으로 하기때문에 코드를 전달하기에 방향키를 입력받을 수 있음. 단, 대소문자 구분 못함
+            }
+        
+        
+        </script>
+
+        <hr>
+        <!-- html요소에 속성으로 이벤트를 처리하는 방법에 사용하는 콜백함수와 addEventListener로 이벤트를 처리할 때 전달하는 콜백함수를 지정하는 것은 다른 특성이 있음. 함수 안에서 this 키워드에 대한 참조가 다름 -->
+        <input type="text" id="in1" onkeyup="aaa()">
+        
+        <script>
+            function aaa(){
+                alert(this);  //this는 이 문서의 최상위 객체 window객체(함수에 넣은 this)
+            }
+
+        </script>
+        <hr>
+        <input type="text" id="in2">
+        <script>
+            var kk=function(){
+                //alert(this);   //<---this는 eveent의 소스요소인 input요소가 됨(listener에 넣은 this)
+                this.value=this.value.toUpperCase();
+            }
+            document.getElementById('in2').addEventListener('keyup', kk);
+        
+        </script>
+        
+
+        
+    </body>
+</html>

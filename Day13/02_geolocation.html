@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title></title>
+
+    <script>
+
+        function clickBtn1(){
+            // 현재 위치 얻어오기 bom에 존재하는 객체
+            navigator.geolocation.getCurrentPosition(function(position){//OK callBack
+
+                var lat=position.coords.latitude; //위도
+                var lng=position.coords.longitude; //경도
+
+                document.getElementById('target').innerHTML=lat+","+lng;
+
+            },function(error){//ERROR callBack
+            
+            var s;
+            switch(error.code){
+
+                case error.PERMISSION_DENIED:
+                    s="사용자 거부";
+                break;
+
+                case error.POSITION_UNAVAILABLE:
+                    s="지리 정보 없음";
+                break;
+
+                case error.TIMEOUT:
+                    s="시간초과";
+                break;
+
+                case error.UNKNOWN_ERROR:
+                    s="알 수 없는 에러";
+                break;
+            }
+
+            document.getElementById('target');
+
+
+            });
+        }
+
+        var watchID;
+        function clickBtn2(){
+            watchID=navigator.geolocation.watchPosition(function(position){
+            
+            var lat=position.coords.latitude;
+            var lng=position.coords.longitude;
+
+            document.getElementById('target').innerHTML;
+            
+            });
+
+            
+        }
+
+        function clickBtn3(){
+            navigator.geolocation.clearWatch(watchID);
+            
+        }
+
+    </script>
+
+    <body>
+        <button onclick="clickBtn1()">my location</button>
+        <h3 id="target">location</h3>
+
+        <button onclick="clickBtn2()">위치 자동 업데이트 watch()</button>
+        <button onclick="clickBtn3()">위치 자동 업데이트 종료 clear()</button>
+
+    </body>
+</html>

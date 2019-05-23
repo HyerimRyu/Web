@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        
+        <script>
+            // 객체를 생성하는 새로운 방법 : class라는 키워드 등장 [기존방식: 리터럴 객체, ]
+
+            // 1. 클래스 선언
+            class Person{
+
+                // 멤버변수는 반드시 생성자 안에서만 만들 수 있어. 
+                //let name; //ERROR 
+                //this.name; //ERROR
+
+                //생성자
+                constructor(){
+                    this.name="sam"; //멤버변수 선언 및 초기화(멤버변수는 무조건 this.  <-이 형태)
+                    this.age=20; 
+
+                    //let gender="male"; //이건 생성자 함수의 지역변수 
+                }
+
+                // 멤버함수[메소드]
+                //function show(){} //ERROR -class안에서는 function 불가
+                show(){
+                    document.write("show : "+ this.name + ","+this.age+"<br>");  //this 키워드 없으면 멤버변수 못 알아들어
+                }
+            }
+
+            // Person 객체 생성
+            let person=new Person();
+            person.show();
+
+            person.name="robin";
+            person.show();
+
+        </script>
+
+        <script>
+            //다른 스크립트(다른 js문서와 같은 의미)
+            let person2=new Person();
+            person2.show();
+
+            // 생성하면서 값 전달 가능OK
+            class Member{
+                // constructor(id,pw){
+                //     this.id=id;
+                //     this.pw=pw;
+                //}
+
+                // 생성자 오버로딩(이름은 같고 파라미터가 다른) 가능할까???  ---> ERROR!!!!!!!!!! 오버 로딩 아예 안돼
+                // constructor(){
+                //     this.id="aaa";
+                //     this.pw="111";
+                // }
+
+                // 오버로딩처럼 값 전달에 따라 대응하고자 하면...
+                // 파라미터의 디폴트값 사용
+                constructor(id="aaaa",pw="1111"){
+                    this.id=id;
+                    this.pw=pw;
+                }
+
+                show(){
+                    document.write("ID: "+this.id+","+"pw: "+this.pw+"<br>");
+                }
+
+            // 오버 로딩 문법이 무조건 에러???
+            out(){
+                document.write("out!!<br>");
+            }
+
+            out(a){
+                document.write("out:"+a+"<br>");
+            }
+
+            add(a,b){
+                return a+b;
+            }
+
+            // 밖에서 선언한 function을 메소드로 연결
+            display=aaa;
+            }
+
+            // Member 객체 생성
+            let member=new Member("mrhi", "1234");
+            member.show();
+
+            // 혹시 전달 안하면?
+            let member2=new Member();
+            member2.show(); //undefined...
+
+            // 자바처럼 생성자 오버로딩(이름은 같고 파라미터가 다른)
+
+            // 일반 메소드 오버로딩(x) - 사실 덮어쓰기 ....
+            // 비슷하게 하려면... 파라미터의 디폰트값 사용
+            member.out(); //undefined... 
+            member.out(10);
+
+            //리턴메소드는 똑같음
+            let sum=member.add(5,3);
+            document.write("sum : "+sum+"<br>");
+
+            // 멤버메소드를 만드는 특이한 형태
+            // aaa()함수를 Member class의 메소드가 되도록!!
+            function aaa(){
+                document.write("ID:"+this.id+", PW: "+this.pw+"<br>");
+            }
+
+            member.display();
+
+
+
+        </script>
+
+        <hr>
+        <!-- 클래스의 상속!! -->
+
+        <script>
+            class Human{
+                constructor(name, age){
+                    this.name=name;
+                    this.age=age;
+                }
+                show(){
+                    document.write("name:"+this.name+","+"age: "+this.age+"<br>");
+                }
+            }
+
+            let h=new Human("sam", 20);
+            h.show();
+
+            // 상속 받기
+            class Student extends Human{
+               
+                constructor(name, age, major){
+                    // ERROR : 부모클래스의 생성자 호출을 강제함
+                    // 즉, super()를 명시적으로 호출하지 않으면 에러!
+
+                    // this.name=name;
+                    // this.age=age;
+                    super(name,age);
+                    this.major=major; //새로운 멤버변수 추가
+                }
+
+                //오버라이딩!!
+                show(){
+                    super.show(); //부모의 show 호출; 부모껀 부모가, 내꺼는 내가
+                    document.write(this.major+"<br>");
+                }
+            }
+
+            let stu=new Student();
+            stu.show();
+
+            let stu2=new Student("robin", 25, "android");
+            stu2.show();
+        
+        </script>
+
+        <hr>
+
+        <script>
+            // static 키워드 등장(정적: 예전에는 prototype으로 했었어)
+            class First{
+                static show(){
+                    document.write("first static show!!");
+                }
+            }
+            First.show(); //클래스명.메소드() 
+
+            class Second{
+                constructor(){
+                    //static 멤버변수는?
+                    //this.name="aaa";
+                }
+                //static this.name; //Error
+                static name="kim"; //static 변수
+            }
+
+            // 정적변수 사용
+            document.write(Second.name+"<br>");
+
+            // 객체의 멤버는 동적으로 추가가 가능하다! 
+            Second.num=50; //static 변수 동적추가 
+            document.write(Second.num+"<br>");
+
+            // 정적 메소드나 변수를 객체를 이용해서 접근가능 할까?
+            let k=new Second();
+            document.write(k.name+"<br>"); //객체에 멤버변수 k가 새로 추가된 개념이야
+
+            let f=new First();
+            f.show();//이건 아예 에러!!! 호출이라, 메소드 넣을 수가 없어!! 없는 함수 호출
+            
+
+        
+        </script>
+    </body>
+</html>

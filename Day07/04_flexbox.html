@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>flexbox</title>
+
+        <style>
+
+            html, body{
+                height: 100%;
+            }
+
+            .main{
+                display: flex;
+                /* -direction 안주면 자동 row(수평배치), 이때 자동으로 자식 요소들의 너비는 wrap/높이는 match */
+
+                /* 높이가 화면을 가득 채우고 싶다면?? */
+                height: 100%;
+            }
+        
+            nav{
+                width: 20%;
+                background-color: beige;
+            }
+
+            article{
+                width: 60%;
+            }
+
+            article img{
+                max-width: 200px;
+                float: left;
+                margin: 20px;
+            }
+
+            aside{
+                width: 20%;
+                background-color: lightpink;
+            }
+
+            @media all and (max-width:800px){
+                div.main{display: block;}
+                nav, article, aside{width: 100%;}
+            }
+        
+        </style>
+    </head>
+
+    <body>
+        
+        <div class="main">
+
+            <nav>
+                aaa
+            </nav>
+
+            <article>
+                <section>
+                    <img src="../Day6/images/movie.jpg" alt="">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nulla eos eveniet quia illum mollitia minima tenetur magni delectus cupiditate. Ducimus nulla doloribus veniam voluptas, in consequuntur vitae ratione possimus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nulla eos eveniet quia illum mollitia minima tenetur magni delectus cupiditate. Ducimus nulla doloribus veniam voluptas, in consequuntur vitae ratione possimus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nulla eos eveniet quia illum mollitia minima tenetur magni delectus cupiditate. Ducimus nulla doloribus veniam voluptas, in consequuntur vitae ratione possimus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nulla eos eveniet quia illum mollitia minima tenetur magni delectus cupiditate. Ducimus nulla doloribus veniam voluptas, in consequuntur vitae ratione possimus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam nulla eos eveniet quia illum mollitia minima tenetur magni delectus cupiditate. Ducimus nulla doloribus veniam voluptas, in consequuntur vitae ratione possimus.
+                    </p>
+                </section>
+            </article>
+
+            <aside>
+                bbb
+            </aside>
+
+        </div>
+
+    </body>
+</html>

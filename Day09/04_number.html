@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+            // 2. Number 내장 객체
+
+            // 수치형자료형과 다름
+            var a=10;
+            var b=new Number(10);
+
+            document.write(typeof(a)+"<br>");
+            document.write(typeof(b)+"<br>");
+
+            document.write((a==b)+"<br>"); //값만 비교:true
+            document.write((a===b)+"<br>"); //자료형까지 비교:false
+
+            // Number 객체의 기능들(메소드)
+            var num=new Number(123.456);
+
+            // 1) 지수표현식: 한글자만 . : 1.23456e+2
+            document.write(num.toExponential()+"<br>"); 
+            document.write(num.toExponential(2)+"<br>"); //소수점 뒤로 2글자만 해
+
+            num=123.456; //Auto boxing기능
+            document.write(num.toExponential()+"<br>"); 
+            document.write(num.toExponential(2)+"<br>"); //소수점 뒤로 2글자만 해
+
+            // 2) 소수점 자르기  Fixed 고정하다
+            document.write(num.toFixed()+"<br>");
+            document.write(num.toFixed(2)+"<br>");
+
+            // 3) 진법 변환 표기
+            var num=new Number(10);
+            document.write(num.toString()+"<br>");
+            document.write(num.toString(16)+"<br>"); //16진수로
+            document.write(num.toString(8)+"<br>");  //8진수로
+            document.write(num.toString(2)+"<br>");  //2진수로
+
+            document.write(10.5424.toFixed(2));
+            //document.write(10..toFixed(2)); 소수점이 없으면 안돼
+            
+
+        
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>

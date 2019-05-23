@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        
+            // 5. Array
+            var arr=new Array(10,20,30);
+
+            // 배열의 주요 메소드들
+            
+            // 1)배열 붙이기 
+            var arr1=[3,4,5];
+            var arr2=arr.concat(arr1); //concat : 붙이기
+            document.write(arr2+"<br>");
+            document.write(arr+"<br>");
+            document.write(arr1+"<br>"); //concat 해도 원본이 바뀌지는 않아
+
+            // 2)indexOf : 몇번째에 있는지
+            document.write(arr.indexOf()+"<br>");
+            document.write(arr.indexOf(30)+"<br>");
+            document.write(arr.indexOf(10,1)+"<br>"); //두 번째 파라미터: 그 번호의 인덱스 뒤부터 검색
+
+            // 3) push, pop(stack 구조) : 배열의 요소 개수가 변경
+            var stack=[1,2,3,4,5,6,7];
+            document.write(stack+"<br>");
+
+            // 새로운 요소를 추가
+            stack.push(10); //마지막 요소로 삽입 push!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            document.write(stack+"<br>");
+
+            // 요소 가져오기(빼내기!!)
+            var v=stack.pop(); //마지막 요소를 가져옴
+            document.write("빼온 값 :"+v+"<br>");
+            document.write("남은 배열 값 :"+stack+"<br>");
+
+            var v=stack.pop(); //마지막 요소를 가져옴
+            document.write("빼온 값 :"+v+"<br>");
+            document.write("남은 배열 값 :"+stack+"<br>");
+
+            // 4) push, shift() : Queue 구조
+            var que=[1,2,3,4,5,6,7];
+
+            que.push(10);
+            document.write(que+"<br>");
+
+            var v=que.shift(); //처음 요소가 밀려나옴
+            document.write("빼온 값 :"+v+"<br>");
+            document.write("남은 배열 값 :"+que+"<br>");
+
+            // 5) sort : 정렬
+            var arr=[3,5,4,8,9,1,6,7];
+            arr.sort(); //오름차순으로 정렬: 실제 배열 요소 위치가 변경됨
+            document.write(arr+"<br>");
+
+            // 두 자리 수 이상이면 이상해져-> 맨 앞자리의 수만 비교해서 정렬
+            var arr=[23,35,44,8,5649,131,56,97];
+            arr.sort(); 
+            document.write(arr+"<br>"); 
+
+            // 이를 해결하려면 sort()메소드의 파라미터에 '정렬기준 함수'를 넣어줌
+            arr.sort(function(a,b){return a-b;});
+            document.write(arr+"<br>");
+
+            // 내림차순
+            arr.sort(function(a,b){return b-a;});
+            document.write(arr+"<br>");
+
+            // 알파벳은 기본 오름차순
+            var arr=['abc', 'aab','dfg','dsf','lulu'];
+            document.write(arr+"<br>");
+
+            // 내림차순[정렬지정함수 전달해야 함]
+            var desc=function(a,b){
+                if(a > b)return -1;
+                if(b > a)return 1;
+                return 0;
+            }
+            arr.sort(desc);
+            document.write(arr+"<br>");
+
+            // 한글도 당연히 가능!
+            var arr=['문재인', '이문세', '홍길동','김말순', '홍리나','나정'];
+            arr.sort();
+            document.write(arr+"<br>");
+
+            // 6)slice -> 배열의 일부분을 잘라내서 새로운 배열을 리턴(String의 subString()과 비슷)
+            var arr=[10,20,30,40,50,60,70,80,90];
+            var arr1=arr.slice(3); //3번방 뒤로 다 나와:()번째 요소부터 잘라서 새로운 배열로
+            document.write(arr1+"<br>"); 
+
+            var arr2=arr.slice(3,6); //3번방 부터 6번방 전까지:3~5번방까지! 6은 포함 안돼: 6인데 6까지 포함 안되는게 length때문에, length쓰면 끝번 나오니까
+            document.write(arr2+"<br>"); 
+
+            // 7)join - 배열의 요소를 특정 문자를 구분자로 하여 문자열로 리턴  *********배열 중요한거**********
+            var arr=["aa","bb","cc"];
+            var str=arr.join("&!!");
+            document.write(str+"<br>");
+
+            // 8) filter - 특정 조건에 해당하는 요소들만 리턴 : 새로운 배열로
+            var arr=[1,2,3,4,5,2,4,3,5,6-3,-40,3.13];
+            var arr2=arr.filter( function(e){return e>3;}); //배열요소 중에 3보다 큰 것만...
+            document.write(arr2+"<br>");
+
+            // 복잡한 조건 처리도 가능: 지정함수를 통해서
+            var filter=function(e, index, array){
+                return (e>3 && index>5);  //값이 3보다 크고, index 번호가 5 초과인 것
+
+            //값이 3보다 크고, index 번호가 5 초과이면서 배열의 길이가 7 초과 
+                return (e>3 && index>5 && array.length>7);  
+            };
+
+            var arr2=arr.filter( filter); //배열요소 중에 3보다 큰 것만...
+            document.write(arr2+"<br>");
+
+            ////////////////////////////////////////////
+
+            // 2차원 배열 만들기 
+            var a=[10,20,30];
+            var b=["aa","bb","cc"];
+
+            var c=[a,b]; //1차원 배열 여러개 : 2차원 배열
+            document.write(c+"<br>");
+            document.write(c.length+"<br>");
+            document.write(c[0]+"<br>"); //10,20,30 출력
+            document.write(c[1]+"<br>"); //aa,bb,cc 출력
+
+            document.write(c[0][0]+"<br>"); //10 출력
+            document.write(c[0][1]+"<br>");
+            document.write(c[0][2]+"<br>");
+
+            document.write(c[1][0]+"<br>");
+            document.write(c[1][1]+"<br>");
+            document.write(c[1][2]+"<br>");
+
+            var arr=[
+                [10,20,30],
+                ["a","b","c"],
+                [new Date(), new Array(), new Number()]
+            ];
+
+            document.write(arr.length+"<br>");
+            document.write(arr[0]+"<br>");
+            document.write(arr[1]+"<br>");
+            document.write(arr[2]+"<br>");
+
+            // 중첩 반복문!!!!
+            for(var i=0; i<arr.length; i++){
+                for(var k=0; k<arr[i].length; k++){
+                    document.write(arr[i][k]+"<br>");
+                }
+            }
+
+            document.write("<hr>");
+            
+            // ECMA script5에서 추가 된 것: 현재의 공식 JS버전
+
+            // 1) forEach()메소드 : 각각 for문을 돌린다. in은 key가 오는거: 이건 진짜 요소값이 오는거
+            var aa=[10,20,30,40,50];
+            
+            //요소의 개수만큼 매개변수로 전달된 함수를 호출함
+            aa.forEach( function(value, index, array){
+                document.write(" 인텍스 "+index+" 번: "+value+"<br>");
+            } ); 
+
+            // forEach()문과 비슷한데, 리턴을 해줌 : 새로운 배열로 
+            var bb=aa.map(function(value, index, array){
+                return value+index+array.length;
+
+            });
+
+            document.write(bb+"<br>");
+
+            // 배열의 값들을 모두 1씩 증가시키기: 기존 배열의 값 바꿀 때 빠르게! 
+            var cc=aa.map(function(value){
+                return value+1;
+            });
+            document.write(cc+"<br>");
+
+            document.write("<hr>");
+
+            // 객체와 JSON의 상호변환: 서버로 보낼 때 편해
+
+            var person={
+                name:"sam",
+                age:20,
+                male:true,
+                test:{aaa:"aa", bbb:"bb"},
+
+                show:function(){
+                    document.write(this.name); //-> 함수는 json에 포함되지 않아
+                }
+            };
+
+            // 객체 -> Json으로 바꿀꺼야 **********************stringify************************
+            var json=JSON.stringify([person]);
+            document.write(json+"<br>");
+
+            // json -> 객체 : "{}" json 문자열  *****************parse**************************
+            var jsonStr='{"name":"bmw","model":520,"color":"red"}';
+            var car=JSON.parse(jsonStr);
+            document.write(car.name+"<br>");
+            document.write(car.model+"<br>");
+            document.write(car.color+"<br>");
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+        
+        </script>
+    </head>
+
+    <body>
+        
+    </body>
+</html>

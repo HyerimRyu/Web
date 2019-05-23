@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>CSS 기초</title>
+
+        <!-- CSS는 가급적 head 요소 안에 작성 권장 -->
+        <!-- <style>
+            /*이 안은 css의 문법을 사용해야 함*/
+
+            /*선택자의 종류(주석은 ctrl + space)*/
+            /*1. 타입(요소 종류) 선택자*/
+            h2{color: red;}
+            p{color: cadetblue; font-family: serif;}
+
+            /*2. 전체 선택자*/
+            /* 같은 스타일 속성을 적용시 개별 선택자가 우선 적용됨: 그룹핑보다 개별이 더 우선순위가 높아 */
+            *{font-style: italic; color: yellow;}
+
+            /* 3. 아이디 선택자 */
+            #p1{color: yellowgreen;}
+
+
+            /* 4. 클래스 선택자 */
+            .aa{background-color: teal;}
+
+            /* 5. 선택자 그룹(다중 선택자) : ,(콤마 사용) */
+            li,a, #p1{color: blueviolet;}
+
+            /* 6. 자식, 자손 선택자 */
+            #ss>p{color: red;}
+            #ss p{color: orange;}
+
+            /* 주의 할 점 */
+            /* 아래 둘은 완전히 다른 의미 */
+            p.aa{}   /*p요소 중에서 class가  aa인 것만!*/
+            p .aa{}  /*p의 <자손:띄어쓰기가 있잖아> 중에서 class가 aa인 것*/
+
+            /* 실제 사용하는 선택자의 작성 형태 */
+            #kk ul.gg>li{background-color: orange;}
+
+            /* 7. 속성 선택자 */  /*부모에게 주면 자식에게 일괄 적용 ex)font body에 주면 다 돼*/
+            p[class]{font-size: 30px;} /*p중에 class 속성을 부여한 녀석*/
+            div[id="ss"]{font-weight: bold;}
+
+            /* 8. 의사(psuedo-class) 선택자 */
+            a:link{color: plum;}
+            a:visited{color: red;}
+
+            a:hover{color: gray;}
+            a:active{color: tomato;}
+            /* hover(마우스 커서 갖다대면)는 반emtl :link 와 :visited 이후에 작성(먼저 쓰지마~) */
+            /* :active 는 반드시 :hover 다음에 위치해야 함 */
+
+            #kk ul li:first-child{color: red;}
+            #kk ul li:last-child{color: seagreen;}
+            #kk ul li:nth-child(2){color: yellow;}
+
+            table tr:nth-child(2n+1){background-color: violet;}
+
+        </style> -->
+
+        <!-- 외부 스타일 시트 적용 *********************************************************************************************** CSS 이렇게 + 밑에 inline 쓰자-->
+        <link rel="stylesheet" href="./01_ex.css">
+    </head>
+
+    <body>
+        
+        <h2 class="aa">CSS Selector Test</h2>
+        
+        <p id="p1">Hello World</p>
+        <p class="aa">Nice to meet you</p>
+
+        <!-- 다중선택자 연습 -->
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+        
+        <a href="http://www.naver.com">naver</a>
+
+        <!-- 자식, 자손 선택자 연습 -->
+        <div id="ss">
+            <h4>Region</h4>
+
+            <p>Hello World</p>
+            <div>
+                <p>Apple</p>
+                <p>Banana</p>
+                <p>Pear</p>
+            </div>
+        </div>
+
+        <!-- 복합적인 자식/자손 구조 -->
+        <div id="kk">
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+
+            <ul class="gg">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+
+
+        </div>
+
+        <!-- 의사 선택자 연습: 대표적으로 anchor 요소 -->
+        <a href="http://www.google.com">Google</a>
+
+        <table border="1">
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+                <td>ddd</td>
+            </tr>
+            <tr>
+                <td>aaa</td>
+                <td>bbb</td>
+                <td>ccc</td>
+                <td>ddd</td>
+            </tr>
+        </table>
+
+        <!-- 인라인 스타일 적용 : 최고 우선!!순서와 상관없이 우선순위-->
+        <!-- html의 속성(Attribute)으로 지정 : 선택자 빼고 속성과 값만 주면 돼-->
+        <p style="color: teal; background-color: thistle;">Inline Style</p>
+
+       
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+        
+            function aaa(){
+                // 다이얼로그 만드는 3가지
+                // 1. alert()
+                alert();
+                alert("알림"); //위에서부터 실행되므로 첫 번째거가 떠, 확인 누르면 2번째꺼 실행
+
+                // 2. confirm()
+                var result=confirm("종료 할래? "); //확인, 취소에 따라 코드 달라져
+                document.write(result +"<br>");
+
+                // 3. prompt()  //edit있는거
+                var answer=prompt("당신의 나이를 입력하세요", "input age");
+                document.write(answer+"<br>"); 
+                document.write(typeof(answer)+"<br>"); 
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <button onclick="aaa()">click</button>
+    </body>
+</html>

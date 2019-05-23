@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+            var person={
+                name:"sam",
+                age:20,
+
+                show:function(){
+                    document.write("show : "+this.name+","+this.age+"<br>");
+                }
+            };
+
+            document.write("nema : "+person.name+",");
+            document.write("age : "+person.age+"<br>");
+
+            person.show();
+
+            var person2={
+                name:"robin",
+                age:25,
+
+                show:function(){
+                    document.write("show : "+this.name+","+this.age+"<br>");
+                },
+                add:function(a,b){
+                    var c=a+b;
+                    document.write("aaa:"+c+"<br>");
+                }
+            }
+            person2.show();
+            person2.add(5,3);
+
+            person2.show(4,8);
+
+            person.tel="0234020203";
+            document.write("tel: "+person.tel+"<br>");
+
+            person.out=function(){
+                document.write("out : "+this.name+","+this.age+","+this.tel+"<br>");
+            }
+
+            person.out();
+
+            document.write(person.addr);
+            document.write("<hr>");
+
+            function Student(){
+                this.name="aaa";
+                this.age=20;
+                this.major="android";
+
+                this.show=function(){
+                    document.write("student : "+this.name+","+this.age+","+this.major+"<br>");
+                }
+
+                this.setMember=function(name, age, major){
+                    this.name=name;
+                    this.age=age;
+                    this.major=major;
+                }
+
+                addr="seoul";
+                var aaa="aaa";
+            }
+
+            var s=new Student();
+            s.show();
+            document.write("addr: "+s.addr+"<br>");
+            document.write("addr : "+addr+"<br>");
+
+            var s2=new Student();
+            s2.name="bbb";
+            s2.age=25;
+            s2.major="frontEnd";
+            s2.show();
+
+            var s3=new Student();
+            s3.setMember("Kim", 30, "publisher");
+            s3.show();
+
+            function Stu(name,age, major){
+                this.name=name;
+                this.age=age;
+                this.major=major;
+
+                this.show=function(){
+                    document.write("stu : "+this.name+","+this.age+","+this.major);
+                }
+            }
+
+            var stu =new Stu("sam", 20, "php");
+            stu.show();
+
+            document.write('name' in stu);
+           
+        
+
+
+        </script>
+
+    </head>
+
+    <body>
+        
+
+    </body>
+</html>

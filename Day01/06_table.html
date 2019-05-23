@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>table</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+
+    <body>
+        
+        <table border="1">
+            <!-- 한 줄(row) -->
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>message</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>sam</td>
+                <td>Hello world</td>
+            </tr>
+
+            <tr>
+                    <td>2</td>
+                    <td>robin</td>
+                    <td>I didn't decieded yet</td>
+                    <td>2019.03.18</td>
+            </tr>
+        </table>
+
+        <!-- 셀병합 -->
+        <table border="1">
+            <tr>
+                <td rowspan="2">1111</td>
+                <td colspan="3">2222</td>
+                <td>3333</td>
+            </tr>
+
+            <tr>
+                <td>4444</td>
+                <td>5555</td>
+                <td>666666666666666666666666</td>
+            </tr>
+
+
+            <!-- 테이블의 제목 : caption -->
+            <caption>게시판</caption>
+
+            <hr>
+
+            <!-- 테이블 <td></td>안에 다른 요소들 -->
+            <table border="1" width="100%">
+                <tr>
+                    <td width=30%>
+                         <a href="http://www.google.com">google</a>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>aa</li>
+                            <li>bb</li>
+                            <li>cc</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <!-- 한글은 자동 줄 바꿈이 됨 -->
+                        <p>테이블 안에 어떤 요소든 넣을 수 있음. 글씨를 더 길게</p>
+                        <!-- 영어는 자동 줄바꿈 안돼 -->
+                        <p>ldkfsl;kfh;slfj'aldkfjg;sldfkg;slkfh;lk</p>
+                    </td>
+
+                    <td>
+                        <img src="./images/hubble.jpg" alt="hubble">
+                    </td>
+                </tr>
+            </table>
+            
+            
+
+
+        </table>
+
+    </body>
+</html>

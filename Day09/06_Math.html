@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+             var hr = { line : function(){document.write("<hr/>")} }
+             hr.line();
+        
+            // 4. Math
+
+            // p.358, p359의 내용 참고해서 연습
+
+            var n=3.14;
+            document.write(Math.round(n)+"<br>"); //반올림
+            document.write(Math.floor(n)+"<br>"); //반올림은 모르겠고 걍 소수점 다 버려
+            document.write(Math.ceil(n)+"<br>"); //ceil: 천장: 반올림은 모르겠고 그냥 올려
+
+            // 랜덤값 얻어오기
+            var r=Math.random(); //0.0~0.99999까지 줘
+            document.write(r+"<br>");
+            
+            hr.line();
+
+            // 0~9 사이의 랜덤값 
+            var r=Math.random()*10; //한자리 올리는 개념
+            r=Math.floor(r); //소수점 아래 다 버려! 
+            document.write(r+"<br>");
+
+            // 0~14
+            var r=Math.floor(Math.random()*15);
+            document.write(r+"<br>");
+
+            // 5~15
+            var r=Math.floor(Math.random()*10)+5; //*는 숫자의 개수 (5~15는 숫자 10개)
+            document.write(r+"<br>");
+
+            document.write("<hr>");
+
+
+
+
+
+        </script>
+    </head>
+
+    <body>
+        
+
+    </body>
+
+</html>

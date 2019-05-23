@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+         <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- 명함 카드같은 모양의 박스 스타일 -->
+        <div class="container mt-3">
+            <!-- 기본 카드 스타일 -->
+            <div class="card">
+                Hello World
+
+            </div>
+
+            <!-- 여백이 없어서 보기 안 좋은 -->
+            <div class="card">
+                <!-- 카드 안에 본문 영역 -->
+                <div class="card-body">
+                    Hello World
+                </div>
+            
+            </div>
+
+            <!-- 카드 안에 영역 3가지로 구분 가능함 -->
+            <div class="card">
+                <!-- 1. 카드의 헤드라인 -->
+                <div class="card-header"> Hello World </div>
+
+                <!-- 2. 카드의 본문영역 -->
+                <div class="card-body"> Hello World </div>
+
+                <!-- 3. 카드의 푸터 영역 -->
+                <div class="card-footer"> Hello World </div>
+            </div>
+
+            <hr>
+
+            <!-- 카드도 배경 지정 가능 -문맥에 맞는 -->
+            <div class="card bg-primary text-white">
+                <div class="card-body">Hello bootstrap</div>
+            </div>
+            <div class="card bg-secondary text-white mt-1">
+                <div class="card-body">Hello bootstrap</div>
+            </div>
+            <div class="card bg-danger text-white mt-1">
+                <div class="card-body">Hello bootstrap</div>
+            </div>
+
+            <hr>
+
+            <!-- 카드 스타일 레이아웃 -->
+            <!-- Title, text and link를 가진 레이아웃 -->
+            <div class="card">
+                <div class="card-body">
+                    <h4>Card Title</h4>
+                    <p>Card layout example. This is test</p>
+                    <a href="#">Link A</a>
+                    <a href="#">Link B</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- 부트스트랩이 제공하는 스타일 적용 -->
+             <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Card Title</h4>
+                    <p class="card-text">Card layout example. This is test</p>
+                    <a class="card-link" href="#">Link A</a>
+                    <a class="card-link" href="#">Link B</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- 카드 안에 이미지가 삽입되어 있는 레이아웃 -->
+            <div class="card">
+                <div class="card-body">
+                    <img src="./images/moana01.jpg" alt="moana01">
+                    <h4>MOANA 01</h4>
+                    <p>Moana is very good movie</p>
+                    <a href="#">Go Moana site</a>
+                </div>
+            </div>
+            <hr>
+
+            <!-- 부트스트랩이 제공하는 이미지 삽입 스타일 -->
+            <div class="card">
+                <!-- 카드 상단에 이미지 -->
+                <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+                <!-- 카드 이미지 밑에 영역 -->
+                <div class="card-body">
+                    <h4 class="card-title">MOANA 01</h4>
+                    <p class="card-text">Moana is very good movie</p>
+                    <a href="#" class="btn btn-primary">Go Moana site</a>
+                </div>
+            </div>
+            <hr>
+
+            <!-- 너비지정 -->
+            <div class="card" style="width:300px;">
+                <!-- 카드 상단에 이미지 -->
+                <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+                <!-- 카드 이미지 밑에 영역 -->
+                <div class="card-body">
+                    <h4 class="card-title">MOANA 01</h4>
+                    <p class="card-text">Moana is very good movie</p>
+                    <a href="#" class="btn btn-primary">Go Moana site</a>
+                </div>
+            </div>
+            <hr>
+
+             <!-- 너비지정 -->
+            <div class="card" style="width:300px;">
+               
+                <!-- 카드 이미지 밑에 영역 -->
+                <div class="card-body">
+                    <h4 class="card-title">MOANA 01</h4>
+                    <p class="card-text">Moana is very good movie</p>
+                    <a href="#" class="btn btn-primary">Go Moana site</a>
+                </div>
+                <!-- 카드 하단에 이미지 -->
+                <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+            </div>
+            <hr>
+
+            <!-- 위의 예제는 링크를 선택하여 실행되지만 카드 자체를 클릭하여 링크가 실행되도록 할 수도 있음  -->
+            <div class="card" style="width:300px;">
+               
+                <!-- 카드 이미지 밑에 영역 -->
+                <div class="card-body">
+                    <h4 class="card-title">MOANA 01</h4>
+                    <p class="card-text">Moana is very good movie</p>
+                    <a href="#" class="btn btn-primary stretched-link">Go Moana site</a>
+                </div>
+                <!-- 카드 하단에 이미지 -->
+                <img src="./images/moana01.jpg" alt="moana01" class="card-img-top">
+            </div>
+            <hr>
+
+            <!-- 카드에 삽입된 이미지를 배경처럼 본문 영역이 이미지에 overlay되도록 -->
+            <div class="card">
+                <img src="./images/moana01.jpg" class="card-img-top">
+
+                <div class="card-body card-img-overlay text-white">
+                    <h4 class="card-title">MOANA 01</h4>
+                    <p class="card-text">Moana is very good movie</p>
+                    <a href="#" class="btn btn-primary">Go Moana site</a>
+                </div>
+            </div>
+            <hr>
+
+            <!-- 카드를 여러개 배치 -->
+            <!-- 여러개를 colimn으로 처리 -->
+            <div class="card-columns">
+                <div class="card bg-primary text-white mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+                <div class="card bg-secondary text-white mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+                <div class="card bg-info text-white mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+                <div class="card bg-warning text-white mt-1">
+                    <div class="card-body">Hello World Hello World Hello World Hello World Hello World Hello World</div>
+                </div>
+                <div class="card bg-danger text-white mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+                <div class="card bg-dark text-white mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+                 <div class="card bg-light mt-1">
+                    <div class="card-body">Hello World</div>
+                </div>
+            </div>
+            <hr>
+
+
+            <!-- 안의 요소들 모두 한 줄로 만들기 위해 너비를 조절해  -->
+            <div class="card-deck">
+                    <div class="card bg-primary text-white mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                    <div class="card bg-secondary text-white mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                    <div class="card bg-info text-white mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                    <div class="card bg-warning text-white mt-1">
+                        <div class="card-body">Hello World Hello World Hello World Hello World Hello World Hello World</div>
+                    </div>
+                    <div class="card bg-danger text-white mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                    <div class="card bg-dark text-white mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                     <div class="card bg-light mt-1">
+                        <div class="card-body">Hello World</div>
+                    </div>
+                </div>
+                <hr>
+
+
+                <!-- .card-deck와 같은데 사이 마진이 없음 -->
+                <div class="card-group">
+                        <div class="card bg-primary text-white mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                        <div class="card bg-secondary text-white mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                        <div class="card bg-info text-white mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                        <div class="card bg-warning text-white mt-1">
+                            <div class="card-body">Hello World Hello World Hello World Hello World Hello World Hello World</div>
+                        </div>
+                        <div class="card bg-danger text-white mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                        <div class="card bg-dark text-white mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                         <div class="card bg-light mt-1">
+                            <div class="card-body">Hello World</div>
+                        </div>
+                    </div>
+                    <hr>
+
+
+        </div>
+        
+    </body>
+</html>

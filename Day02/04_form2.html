@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>form2</title>
+</head>
+
+<body>
+    
+        <!-- File 선택 -->
+        <form action="file.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="aaa" accept="image/png">
+            <input type="submit">
+        </form>
+
+        <hr>
+        <!-- File 다중선택 -->
+        <form action="file2.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="bbb[]" multiple="multiple">
+            <input type="submit">
+        </form>
+
+</body>
+
+</html>

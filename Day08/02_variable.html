@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- 내부 스크립트 적용 -->
+        <script>
+            //이 안에서는 Javascript의 문법 사용
+
+            //자료형 종류 
+            //1. 수치형 : number -정수, 실수
+            //2. 문자형 : string -한문자, 문자열, "", ''
+            //3. 논리형 : boolean -true, false
+            //4. 객체형 : object, 내장, 함수, new
+            //5. undefined : 값이 없는 변수
+
+            // 변수 선언
+            var a;
+            a=10;
+            document.write(a);
+            document.write("<br>");
+
+            //변수를 선언 할 때 자료형의 구분 없음
+            var b="aaa";
+            document.write(b);
+            document.write("<br>");
+
+            var c=true;
+            document.write(c);
+            document.write("<br>");
+
+            //여기까지가 기본 자료형
+
+            var d=new Date();
+            document.write(d);
+            document.write("<br>");
+            document.write(d.toString());
+            document.write("<br>");
+
+            var e;
+            document.write(e);
+            document.write("<br>");
+
+            document.write("<hr>");
+
+            //변수의 자료형이 동적이므로 자료형을 파악하기 위한 함수가 존재
+            document.write( typeof(a)+"<br>");
+            document.write( typeof(b)+"<br>");
+            document.write( typeof(c)+"<br>");
+            document.write( typeof(d)+"<br>");
+            document.write( typeof(e)+"<br>");
+
+            document.write("<hr>");
+
+            //아래는 당연히 string 자료형
+            var f="1";
+            document.write( typeof(f)+"<br>");
+            document.write("<hr>");
+
+            //변수의 자료형은 값이 대입될 때 결정 됨
+            //그래서 대입되는 값에 따라서 변수의 자료형이 변경될 수 있음.
+            var g=10;
+            document.write(g);
+            document.write("<br>");
+
+            g="kim";
+            document.write(g);
+            document.write("<br>");
+
+            //심지어 함수도 변수에 대입 가능함[함수의 주소를 참조하는 개념]-JS에서는 함수도 객체로 인지됨
+            var h=function(){
+                document.write("hhh출력");
+                document.write("<br>");
+            }
+
+            //함수의 호출을 변수명으로 대신함
+            h();
+            document.write(h);
+            document.write("<br>");
+
+            var k=h;
+            k();
+
+            //문자열은 참조형이 맞음. [자바와 비슷]
+            var s="Hello";
+            document.write(s.length);
+            document.write("<br>");
+            document.write(s.charAt(1));
+            document.write("<br>");
+
+            //자바와 다르게 한 글자만 변경됨
+            document.write(s.replace("l","p"));
+            document.write("<br>");
+
+            document.write(s.toUpperCase());
+            document.write("<br>");
+
+            //위에서 메소드를 사용해도 원본은 변경되지 않음
+            document.write(s);
+            document.write("<br>");
+
+            //사용자 정의 객체 //JS에는 class라는 개념이 없음[ES5 버전부터 class문법이 생겼어]
+            var person={name:"sam", age:15}; //이게 객체 만드는거야
+            document.write(person.name+"<br>");
+            document.write(person.age+"<br>");
+
+            //좀 더 깊은 예제는 따로 배울꺼야 --> 다음 Chapter 에서!
+
+           
+
+
+
+
+
+
+
+        
+        </script>
+
+
+    </head>
+
+    <body>
+        
+        
+
+    </body>
+</html>

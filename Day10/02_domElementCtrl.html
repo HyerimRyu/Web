@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        
+        <!-- 요소의 속성 변경 -->
+        <!-- img 요소 src속성 변경 -->
+        <img src="./koo.jpg" alt="koo" width="120" height="120" id="koo">
+        <button onclick="change()">button</button>
+
+        <script>
+            function change(){
+                // 1. 요소 노드 찾기 -> id
+                document.getElementById('koo').src="./flower.jpg"; //바로 점 찍고 개체 속성 바꿀 수 있어
+            
+            }
+        
+        </script>
+
+        <!-- 요소의 스타일 : DOM의 구조를 이용한 요소 접근법 -->
+        <p id="p1">this is paragraph</p>
+        <input type="button" value="스타일 변경" onclick="aaa(this)">
+       
+        <script>
+            function aaa(e){
+                // 버튼 바로 전에 있는 p요소를 참조
+                var p=e.previousElementSibling;
+                p.style.color="plum";
+                p.style.fontWeight="bold"; //Camel표기법으로 css에서는 - 특수문자 못 알아들어
+                p.style.fontFamily="cursive";
+            }
+        </script>
+
+        <style>
+             .kk{
+                 color: blue;
+                 font-weight: bold;
+                 font-style: italic;
+             }
+        
+        </style>
+        <input type="button" value="클래스 속성을 이용하여 변경" onclick="bbb()">
+        <script>
+            function bbb(){
+                var p=document.getElementById('p1');
+                // HTML의 속성명과 JS의 멤버변수명이 다른 몇 가지가 있음
+                p.className="kk";
+
+                e.type="text";
+            }
+        
+        </script>
+
+        <hr>
+
+        <!-- DOM 노드의 동적 생성 및 추가, 삭제  -->
+        <button onclick="addText()">add Text node</button>
+        <button onclick="addElement()">add Element node</button>
+        <button onclick="removeNode()">remove node</button>
+        <p class="pp"></p>
+
+        <script>
+            
+            function addText(){
+                var node=document.createTextNode("This is Text");
+                var node=document.createTextNode("<a href=''>This is Text</a>"); //앵커 요소아냐! 텍스트 노드로 한다고 해서 너가 앵커던 뭐던 난 텍스트로 찍을란다
+
+                // class="pp"인 p요소를 찾아서 자식 노드로 추가
+                var target=document.getElementsByClassName('pp')[0];
+                //target.appendChild(node);
+
+                // ***** 간단하게 텍스트 노드 추가 <----------이거 많이 써 *****
+                target.textContent="<a href=''>This is Text</a>";
+            }
+
+            function addElement(){
+                // 요소 노드를 추가하려면, 일단, 요소 노드부터 생성
+                var node=document.createElement('a');
+
+                // 속성 노드 생성 및 a요소 노드에 추가
+                var attr=document.createAttribute('href');
+                attr.value="http://www.google.com";
+                node.setAttributeNode(attr);
+                //node.href="http://www,naver.com";  --> 실제로는 이렇게 많이 써, 지금은 노드 연습하려고 그런거야 
+
+                // 텍스트 노드 생성 및 추가
+                var text=document.createTextNode("Google");
+                node.appendChild(text);
+
+                //node.textContent="Hello";  ->위의 두 줄 이렇게 간단하게 쓸 수 있어
+
+                var target=document.getElementsByClassName('pp')[0];
+                //target.appendChild(node);
+                target.insertBefore(node,target.firstChild); //맨 앞에 붙일 땐 insertBefore, target.firstChild (그런데 거의 안써 거의 다 innerHTML 써 )
+
+                // 간단하게 요소 노드 추가하기
+                target.innerHTML += "<a href=''>This is Text</a>";
+                //target.innerHTML ="Hello"; //대부분 innerHTML 많이 써 ******
+                //target.textContent="Hello";
+            }
+
+            function removeNode(){
+                var target=document.getElementsByClassName('pp')[0];
+                var node=target.firstChild; //<a>요소
+                target.removeChild(node);
+
+                //target.innerHTML="";
+            }
+        
+        </script>
+
+        <hr>
+        <!-- HTML5 에서 새로 생긴 dom요소 제어메소드 -->
+        <!-- css의 선택자 표기법을 이용하여 요소 찾아오기 -->
+        <h3 id="ee">aaa</h3>
+        <button onclick="hhh()">button</button>
+        <script>
+            function hhh(){
+                // h3요소를 찾아 올 때 css의 선택자 문법 사용
+                var e=document.querySelector('#ee');  //<-----------------querySelector 짱 유용!! 좋은거야! 많이 써!
+                e.innerHTML="Hello pretty difficult"
+            }
+        </script>
+
+        <hr>
+        <h4>aaa</h4>
+        <h4>bbb</h4>
+        <h4>ccc</h4>
+
+        <script>
+            var es=document.querySelectorAll('h4'); //h4 3개! querySelectorAll ! All 해야해  **********우와!!!!!! 이거 유용해!!!!***********
+            es[0].onclick=function(){
+                alert('aa');
+            }
+
+            es[1].onclick=function(){
+                alert(this); //this는 onclick을 발동시킨 h4요소를 가리키는거야
+            }
+
+
+            es[2].onclick=function(){
+                alert(e); //e : mouse event 객체
+            }
+
+        </script>
+        
+    </body>
+</html>

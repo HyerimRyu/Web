@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>01_ex</title>
+
+
+        <style>
+            /* display */
+            #aa{display: inline;}
+            #aa{ width: 300px;}  /*안돼. 인라인은 width height 안먹어*/
+            #aa{display: inline-block;} /*인라인 하면서 width(사이즈 지정)주려면 인라인 블록써*/
+
+            img#bb{display: block;}
+
+        </style>
+
+        <style>
+            /* position속성 */
+            #one{
+                background-color: antiquewhite;
+                width: 200px;
+                height: 50px;
+            }
+
+            #two{
+                position: fixed;
+                bottom: 30px;
+                right: 10px;
+               
+            
+                background-color: yellowgreen;
+                width: 150px;
+                height: 30px;
+            }
+
+            #three{
+                background-color: burlywood;
+                width: 200px;
+                height: 50px;
+            }
+
+            .aa{
+                background-color: black;
+                position: relative;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- display 속성 연습 -->
+        <p id="aa">Hello world</p>
+        <a href="">Good day</a>
+        <strong>good morning</strong>
+        <img src="./lion.png" alt="" id="bb">
+
+        <hr>
+
+        <!-- 블럭요소 안에 블럭/인라인 요소 삽입 가능함 -->
+        <div style="background-color:tomato; border: 2px solid; padding: 5px;">Nice <p>aaa</p>world</div>
+
+        <p style="background-color:olive; border: 2px solid; padding: 5px;">Nice <p>aaa</p>world</p>
+
+        <h1 style="background-color:olive; border: 2px solid; padding: 5px;">Nice <p>aaa</p>world</h1>
+
+        <h1 style="background-color:olive; border: 2px solid; padding: 5px;">Nice <h1>aaa</h1>world</h1>
+
+        <!-- 인라인 요소 안에 블럭요소 삽입 -->
+        <span style="background-color:tomato; border: 2px solid; padding: 5px;">Nice <p>aaa</p>world</span>
+
+        <hr>
+        <!-- position -->
+        <div class="aa">
+            <p id="one">block #1</p>
+            <div id="two">block #2</div>
+            <p id="three">block #3</p>
+        </div>
+       
+
+
+    </body>
+</html>

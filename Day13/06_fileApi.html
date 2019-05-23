@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        
+        <!-- 보안상의 문제로 FileReader는 사용자가 input요소를 통해서 선택한 파일만 읽을 수 있어(즉, 직접 파일경로를 주는 것이 불가능해) //파일쓰기(FileWriter)도 불가능-->
+        <input type="file" name="" id="in1">
+        <button onclick="readFile()">선택된 파일 내용 읽기</button>
+        <textarea  id="ta" cols="30" rows="10"></textarea>
+
+        <script>
+            function readFile(){
+                // 선택된 파일 알아내기
+                var value=document.getElementById('in1').value;
+                alert(value);  //파일 경로와 파일명- 실제 경로가 아닌 fake경로가 오므로 파일명만 알 수 있음
+                // 그리고 중요한 것은 얻어온 값은 string임. File객체가 아니야
+
+                // 우리가 필요한 것은 string 경로가 아니라 File객체야 
+                // 그래서 value대신에 다른 속성으로 선택된 파일에 대한 정보를 얻어옴
+                var files=document.getElementById('in1').files;  //속성값은 FileList객체(File 객체의 배열)[여러개 선택이 가능하므로]
+                //files는 배열 객체야
+
+                //File객체 안에 file에 대한 정보를 가지고 있음
+                alert(files[0].name + "\n"+files[0].size + "\n" + files[0].type);
+
+                // 파일 리더객체 생성
+                var fr = new FileReader();
+
+                // 읽기 요청 전에 결과를 콜백받는 함수 메소드 등록
+                fr.onload=function(){
+                    document.getElementById('ta').innerHTML=fr.result;
+                }
+
+                // 파일 리더에게 File을 읽어달라고 요청
+                fr.readAsText( files[0], "utf-8" );
+            }
+        
+        </script>
+
+        <hr>
+        <hr>
+
+        <h2>Read Image File</h2>
+        <input type="file" id="in2">
+        <button onclick="readImageFile()">이미지 읽기</button>
+        <hr>
+        <img src="" alt="" id="aa" style="border:4px solid black; max-width:500px; max-height:500px">
+
+        <script>
+            function readImageFile(){
+                var files=document.getElementById('in2').files;
+
+                var fr=new FileReader();
+
+                fr.onload=()=> document.getElementById('aa').src=fr.result;  //화살표 함수식으로 쓴거야 
+
+                fr.readAsDataURL( files[0] );
+            }
+        </script>
+
+
+    </body>
+</html>

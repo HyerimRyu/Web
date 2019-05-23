@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>03_font</title>
+
+        <style>
+        /* 이 공간 안에서는 css 문법 사용(style 안에서) */
+
+        /* 글꼴 변경 */
+        p{font-family: "RosewoodStd_Regular",cursive;}
+        p{font-family: "BrushScript BT", sans-serif;}
+        p{font-family: fantasy;}
+        p{font-family: "휴먼매직체",monospace;}
+
+        /* 한글은 못 알아듣거나 안되는 경우가 있으므로 */
+        /* 웹폰트(Custom font:내가 지정)를 사용하는걸 권장 */
+
+        /* 웹폰트 만들기 */
+        @font-face{
+            font-family: "My Font";
+            src: url("./billabong.otf");  /*인스타그램 글꼴: billabong.otf*/
+            /* css에서 다른 파일의 경로는 언제나 url()로 처리 */
+        }
+
+        p{font-family: "My Font", sans-serif;}
+
+        /* 폰트 크기(세로) */
+        p{font-size: 4.0em}
+        /* 폰트는 w3c 에서 em 단위 권장: 그래야 글씨 규격 일정 */
+
+        /* 볼트체 */
+        p{font-weight: bold;}
+
+        /* 이탤릭체 : italic:필기체 느낌, oblique: 그냥 기울이기 */
+        p{font-style: italic;}
+        p{font-style: oblique;}
+
+        /* 텍스트 정렬(수평정렬) */
+        p{text-align: center;}
+
+        /* 텍스트 변환 */
+        p{text-transform:capitalize; }
+
+        /* 텍스트 줄 긋기 */
+        p{text-decoration: line-through;}
+        p{text-decoration: none;}
+
+        /* 텍스트 그림자 */
+        p{text-shadow: 5px 3px 5px lightblue;}
+
+        /* 다중컬룸(ex.시험지) */
+        p#aa{
+            column-count: 2;
+            column-rule: 3px dashed olive;
+            column-gap: 50px;
+        }
+
+        /* 워드랩 */
+        p.ss{
+            width: 5em; /*글자 5개 정도만 넣기*/
+            border: 1px solid grey;
+            word-wrap: break-word; /*영어는 박스 내에서 막 넘어가는거 방지: 박스 안에 가두기*/
+        }
+
+
+    
+
+        </style>
+
+
+    </head>
+
+    <body>
+        
+        <p>instagram</p>
+        <p>한글은 어떻게 변하나?</p>
+
+        <!-- 다중컬럼 예제 -->
+        <p id="aa">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Quae accusantium ipsum 
+            modi, odit, vero molestias maxime iusto blanditiis incidunt, 
+            deleniti beatae impedit enim dolorum itaque amet? 
+            Temporibus rerum accusantium laboriosam?
+
+        </p>
+
+        <!-- 텍스트 정렬에 대한 고려 -->
+        <!-- text-align은 블럭요소(block)만 가능 -->
+        <div style="text-align:center; background-color: lightblue; line-height: 3em">Hello</div>
+        <span style="text-align:center; background-color: bisque;">Hello</span> 
+
+        <p class="ss">
+            한글입니다. 안녕하십니까
+            wowEnglfkcklffxljh;sdkfj ghlk djf;glj
+        </p>
+
+       
+
+    </body>
+</html>

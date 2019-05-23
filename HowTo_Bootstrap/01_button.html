@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Bootstap Button</title>
+
+        <!-- 부트스트랩 라이브러리 추가:css, jquery, bootstap 순으로 -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <!-- 기본 버튼 -->
+        <button>Button</button>
+        <!-- 안예뻐: 그래서 좀 예쁘게 할 때~ 부트스트랩의 css 사용 -->
+        <button class="btn">button</button>
+
+        <!-- 기본 btn은 배경색이 없어서 좀 안 이뻐 그래서 추가로 스타일 적용 -->
+        <!-- 하나의 요소에 여러개의 class 지정 가능 [띄어쓰기를 통해서] -->
+        <button class="btn btn-primary">button</button>
+
+        <!-- 저 btn클래스 스타일은 버튼이 될 수 있는 모든 요소에 적용가능 -->
+        <p class="mt-3">
+            <button class="btn btn-primary">BUTTON</button>
+
+            <a href="" class="btn btn-primary">anchor</a>
+            <input type="button" value="input button" class="btn btn-primary">
+            <input type="submit" value="input submit" class="btn btn-primary">
+            <input type="reset" value="input reset" class="btn btn-primary">
+        </p>
+
+        <!-- 가운데 배치 -->
+        <p class="text-center">
+            <button class="btn btn-primary">button</button>
+            <!-- 버튼의 성질에 따라 배경색상을 여러개 준비해 놨어  -->
+            <button class="btn btn-secondary">button</button>
+            <button class="btn btn-success">button</button>
+            <button class="btn btn-warning">button</button>
+            <button class="btn btn-info">button</button>
+            <button class="btn btn-danger">button</button>
+            <button class="btn btn-light">button</button>
+            <button class="btn btn-dark">button</button>
+            <button class="btn btn-link">button</button>
+         
+        </p>
+
+        <!-- 조금 큰 버튼 스타일 -->
+        <p class="text-center">
+                <button class="btn btn-primary btn-lg">button</button>
+                <!-- 버튼의 성질에 따라 배경색상을 여러개 준비해 놨어  -->
+                <button class="btn btn-secondary btn-lg">button</button>
+                <button class="btn btn-success btn-lg">button</button>
+                <button class="btn btn-warning btn-lg">button</button>
+                <button class="btn btn-info btn-lg">button</button>
+                <button class="btn btn-danger btn-lg">button</button>
+                <button class="btn btn-light btn-lg">button</button>
+                <button class="btn btn-dark btn-lg">button</button>
+                <button class="btn btn-link btn-lg">button</button>
+             
+            </p>
+
+            <!-- 조금 작은 버튼 -->
+              <p class="text-center">
+                <button class="btn btn-primary btn-sm">button</button>
+                <!-- 버튼의 성질에 따라 배경색상을 여러개 준비해 놨어  -->
+                <button class="btn btn-secondary btn-sm">button</button>
+                <button class="btn btn-success btn-sm">button</button>
+                <button class="btn btn-warning btn-sm">button</button>
+                <button class="btn btn-info btn-sm">button</button>
+                <button class="btn btn-danger btn-sm">button</button>
+                <button class="btn btn-light btn-sm">button</button>
+                <button class="btn btn-dark btn-sm">button</button>
+                <button class="btn btn-link btn-sm">button</button>
+             
+            </p>
+
+            <!-- 윤곽선 버튼 -->
+             <p class="text-center">
+            <button class="btn btn-outline-primary">button</button>
+            <!-- 버튼의 성질에 따라 배경색상을 여러개 준비해 놨어  -->
+            <button class="btn btn-outline-secondary">button</button>
+            <button class="btn btn-outline-success">button</button>
+            <button class="btn btn-outline-warning">button</button>
+            <button class="btn btn-outline-info">button</button>
+            <button class="btn btn-outline-danger">button</button>
+            <button class="btn btn-outline-light">button</button>
+            <button class="btn btn-outline-dark">button</button>
+            <button class="btn btn-outline-link">button</button>
+         
+        </p>
+
+        <!-- 버튼 그룹 만들기 -->
+        <!-- role : 시각장애인용 웹 '스크린리더'에서 읽어주도록 설정 [웹 접근성] -->
+        <!-- aria-label : '스크린 리더'가 읽어주는 글씨 -->
+        <div class="btn-group" role="group" aria-label="button group test">
+            <button class="btn btn-primary">aaa</button>
+            <button class="btn btn-primary">bbb</button>
+            <button class="btn btn-primary">ccc</button>
+        </div>
+
+        <!-- 수직 그룹 만들기 -->
+          <div class="btn-group-vertical">
+            <button class="btn btn-primary">aaa</button>
+            <button class="btn btn-primary">bbb</button>
+            <button class="btn btn-primary">ccc</button>
+        </div>
+
+        <!-- 블럭요소 버튼 -->
+        <button class="btn btn-primary btn-block">block level button style</button>
+        <button class="btn btn-success btn-block">block level button style</button>
+
+        <!-- disable 버튼 -->
+        <button class="btn btn-primary" disabled>disable</button>
+        <button class="btn btn-secondary" disabled>disable</button>
+        
+    </body>
+</html>

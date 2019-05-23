@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{padding: 0px; margin: 0px;}
+
+        #wrap{
+            width: 90%;
+            border: 4px solid black;
+            margin: 0 auto;
+        }
+
+        #wrap div{
+            display: inline-block; /*inline은 높이, 넓이 지정 못해! inline-block은 돼*/
+            height: 100px;
+            width: 100%; /*부모 영향 받아wrap이 이미 90%라서 100%*/
+            margin-right: -6px; /*마진을 -(마이너스)주면 겹쳐*/
+        }
+
+        /* 의사 클래스 선택자:  id없이 바로 선택*/
+        #wrap div:first-child{
+            background-color: aqua;
+        }
+
+        #wrap div:last-child{
+            background-color: yellow;
+        }
+
+        #wrap div:nth-child(2){
+            background-color: lightgreen;
+        }
+
+        #wrap div:nth-child(3){
+            background-color: pink;
+        }
+
+        #wrap div:nth-child(4){
+            background-color: olive;
+        }
+
+        #wrap div:nth-child(5){
+            background-color: violet;
+        }
+
+        /* 미디어쿼리 적용 */
+        /* 320px 이상 일 때: 스마트폰 and Portrait 모드일 때 */
+        @media all and (min-width:320px){
+            #wrap div{
+                width: 100%;
+            }
+
+            /* 600px 이상: 스마트폰(가로모드) or 태블릿pc */
+            @media all and (min-width:600px){
+                #wrap div{width: 50%;}
+                #wrap div:last-child{width: 100%;}
+            }
+
+            /* 800px이상: desktop monitor */
+            @media all and (min-width:800px){
+                #wrap div{width: 20%;}
+                #wrap div:last-child{width: 20%;}
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="wrap">
+        <div>aa</div>
+        <div>bb</div>
+        <div>cc</div>
+        <div>dd</div>
+        <div>ee</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    </head>
+
+    <body>
+        
+        <h1>Bootstrap heading element</h1>
+        <h2>Bootstrap heading element</h2>
+        <h3>Bootstrap heading element</h3>
+        <h4>Bootstrap heading element</h4>
+        <h5>Bootstrap heading element</h5>
+        <h6>Bootstrap heading element</h6>
+        <hr>
+
+        <!-- 새로운 큰 HeadLine 글씨 스타일 있음 -->
+        <h1 class="display-1">Display</h1>
+        <h1 class="display-2">Display</h1>
+
+        <!-- 요소와는 상관없음 -->
+        <p class="display-3">Display</p>
+        <p class="display-4">Display</p>
+        <hr>
+
+        <!-- <small>엘리먼트의 사용 : 부제목같은 것 만들 때 -->
+            <h1>Heading  <small>second title</small>  </h1>
+            <h3>Heading  <small>second title</small>  </h3>
+
+            <!-- 위처럼 기본에 사용하던 html의 태그 스타일들이 조금씩 다름 -->
+            <hr>
+
+            <!-- <mark>:highlight -->
+                <p>This is <mark>mark</mark> element</p>
+                <p>This is <code>mark</code> element</p>
+                <p>This is <kbd>ctrl + c</kbd> element</p>
+                <p>This is <abbr title="Java Development Kit">JDK</abbr> element</p>
+
+                <hr>
+
+                <p class="font-weight-bold font-italic text-center">This is text style</p>
+                <hr>
+
+                <!-- 문맥에 따라 특정 글씨 색상 지정 : ex) 경고문구는 빨간색 사용 등 -->
+                <div class="container">
+                    <p>This is paragraph</p>
+                    <p class="text-primary">This is paragraph</p>
+                    <p class="text-secondary">This is paragraph</p>
+                    <p class="text-success">This is paragraph</p>
+                    <p class="text-info">This is paragraph</p>
+                    <p class="text-warning">This is paragraph</p>
+                    <p class="text-danger">This is paragraph</p>
+                    <p class="text-mute">This is paragraph</p>
+                    <p class="text-white">This is paragraph</p>
+                    <p class="text-dark">This is paragraph</p>
+                    <!-- 안쓴거랑 같은 스타일 -->
+                    <p class="text-body">This is paragraph</p>
+
+                </div>
+
+                <!-- 당연하게 이 글씨 색상은 a요소에도 가능함 -->
+                <hr>
+                <div class="container">
+                    <a href="" class="text-primary">primary key</a>
+                    <a href="" class="text-info">info key</a>
+                    <a href="" class="text-success">success key</a>
+                    <a href="" class="text-danger">danger key</a>
+                </div>
+
+                <!-- 위와 같은 색상지정은 배경색도 가능함 -->
+                <hr>
+
+                 <div class="container">
+                    <p>This is paragraph</p>
+                    <p class="bg-primary">This is paragraph</p>
+                    <p class="bg-secondary">This is paragraph</p>
+                    <p class="bg-success">This is paragraph</p>
+                    <p class="bg-info">This is paragraph</p>
+                    <p class="bg-warning">This is paragraph</p>
+                    <p class="bg-danger">This is paragraph</p>
+                    <p class="bg-white">This is paragraph</p>
+                    <p class="bg-dark">This is paragraph</p>
+                    <p class="bg-light">This is paragraph</p>
+
+                </div>
+
+    </body>
+</html>

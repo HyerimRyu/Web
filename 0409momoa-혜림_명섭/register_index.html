@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang='ko' class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=yes" />
+
+        <title>momoA - MainPage</title>
+
+        <link rel="stylesheet" type="text/css" href="./css/nav/nav.css">
+        <link rel="stylesheet" type="text/css" href="./css/nav/hamburgers.min.css">
+        <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="./css/default.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.3.3/jquery.mmenu.all.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/7.3.3/jquery.mmenu.all.js"></script>
+        <link rel="stylesheet" type="text/css" href="./lib/jquery.mhead.css">
+        <script type="text/javascript" src="./lib/jquery.mhead.js"></script>
+        <script src="./js/default.js"></script>
+  
+		<!--개인연결-->
+		<link rel="stylesheet" type="text/css" media="screen" href="./css/register.css"> 
+    <script>
+		
+		// 유효성 검사
+		function checkReg(){
+
+			var id=document.getElementById('id');
+			var p1=document.getElementById('p1');
+
+			if(id.value.match( re) ) p1.innerHTML="가입 가능합니다.";
+			else p1.innerHTML="요구하는 형식이 아닙니다."
+
+
+			var re=/^[a-zA-Z0-9]{4,12}$/;   //id 검사
+   
+		}
+		//이메일 셀렉트
+		function changeAddr(){
+			var state = $('.selectE option:selected').val();
+			if(state=='c_write') {			
+				$('.check_email_add').removeAttr("readonly");
+				$('.check_email_add').attr('value',"");
+				$('.check_email_add').focus();					
+			}else {
+				$('.check_email_add').attr('value',state);					
+			}	
+		}//changeAddr
+		
+		function id_dbcheck(){
+			//ajax로 디비체크			
+		}
+		
+		function signIn(){
+			var isgo =false;
+			//form에서 보낼 값 체크 해서 디비에 보내기
+			//총 보내야할값 :input value 
+			//name = m_type (라디오 버튼)
+			//name = m_id (아이디) class check_id의 value 값으로 아이디 중복 확인 되었는지 확인 
+			//class i_pw 와 check_pw 의 값 확인 후 일치하면 name = m_pw
+
+			//name = m_name (이름)
+			//name = m_birth (생일)
+
+			//name = m_email (이메일) class phone_num의 인풋값 확인하고 합쳐서 name = m_email 에 벨류값으로 넣어놓기  
+			//name = m_hp (전화번호) class phone_num의 인풋값을 확인하고 합쳐서 name = m_hp 에 벨류값으로 넣어놓기
+			//name = m_sns (sns) 수신여부 미체크시 값이 안넘어감
+			 if(isgo) $("form").submit();
+		};
+		
+	</script>
+    
+        
+      
+</head>
+<body>
+	<div id="page">
+    <div id="header"></div>
+    <div id="section">
+        <div class="container">
+			<div class = "register_container">
+				<div class="morebox">
+					<div id="centerline"></div>	
+					<div id="textbox">
+						<span>
+							<span class="itemtype">Momoa</span> <span class="moretext">회원가입</span>
+						</span>
+					</div>	
+				</div>
+				<p><span class="s_red"> *</span>필수 정보입력</p>
+				<fieldset>
+					<form action="" method="POST" class = "input_form">
+						<table>
+							<tr>
+								<th>회원구분 <span class="s_red"> *</span></th>
+								<td>
+									<span><input type="radio" name="m_type" checked value="1"> 일반회원</span>
+									<span><input type="radio" name="m_type" value="2"> 관리자</span>
+									<p>개인 정보 허위 기재시 무통보 삭제됨을 유의하여 주세요.</p>
+								</td>
+							</tr>
+							<tr>
+								<th>아이디<span class="s_red"> *</span></th>
+								<td>
+									<span><input type="text" name="m_id"></span>
+									<span class="marginL_8"><input type="button" class="check_id" onclick="id_dbcheck" value="중복확인"></span>
+									<p>(4~12자의 영문 대소문자와 숫자로만 입력)</p>
+									<p id= "p1"></p>
+								</td>
+							</tr>
+							<tr>
+								<th>비밀번호<span class="s_red"> *</span></th>
+								<td>
+									<span><input type="password" name="m_pw" class="i_pw"></span>
+									<p>(4~12자의 영문 대소문자와 숫자로만 입력)</p>
+								</td>
+							</tr>
+							<tr>
+								<th>비밀번호 확인<span class="s_red"> *</span></th>
+								<td><span><input type="password" class="check_pw"></span></td>
+							</tr>
+							<tr>
+								<th>이름<span class="s_red"> *</span></th>
+								<td><span><input type="text" name="m_name"></span></td>
+							</tr>
+							<tr>
+								<th>생일<span class="s_red"> *</span></th>
+								<td><span><input type="date" id="birth" name="m_birth" placeholder ="1990-11-02" value="1990-11-02"></span></td>
+							</tr>
+							<tr>
+								<th>핸드폰번호<span class="s_red"> *</span></th>
+								<td class="phone_num">
+									<span><input type="number" value="010" maxlength="3" max ="999" min="0"></span> - 
+									<span><input type="number" value="1234" maxlength="4" max ="9999" min="0"></span> -
+									<span><input type="number" value="5678" maxlength="4" max ="9999" min="0"></span>
+								</td>
+							</tr>
+							<tr>
+								<th>email<span class="s_red"> *</span></th>
+								<td class ="check_emailAddr">
+									<span><input type="text" class="check_email"/> @</span>
+									<span><input type="text" class="check_email_add" readonly/></span>
+									<select  class="selectE" onchange="changeAddr()">
+										<option value="">이메일선택</option>
+										<option value="naver.com">naver.com</option>
+										<option value="hanmail.net">hanmail.net</option>
+										<option value="gmail.com">gmail.com</option>
+										<option value="c_write">직접입력</option>
+									</select>	
+								</td>
+							</tr>
+							<tr>
+								<th>SNS 수신여부</th>
+								<td>
+									<input type="checkbox" name="m_sns" value="동의" id="sms">동의함
+									<p>쇼핑몰에서 제공하는 할인/이벤트 정보를 SMS으로 받으실 수 있습니다.</p>
+								</td>
+							</tr>
+						</table>	
+						<input type="hidden" name = "m_email">
+						<input type="hidden" name = "m_hp">
+					</form>
+			
+				</fieldset>
+				<div class="sand_register">
+					<a onclick="signIn()"><span>회원가입</span></a>
+					<a href="#메인페이지로추후연결"><span>취소하기</span></a>
+				</div>
+			</div>
+			
+		
+        </div>
+    </div>
+    <div id="footer"></div>
+	</div>
+</body>
+</html>

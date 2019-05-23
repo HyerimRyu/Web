@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+         <!-- bootstrap 적용 : w3schools.com에서 링크 복붙(CDN:Contents Delivery Networks)-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+        <!-- 드롭다운 메뉴 -->
+        <div class="container mt-3">
+
+            <!-- 기본적인 드롭다운 메뉴 -->
+            <div class="dropdown">
+                <!-- 1. 드롭다운 토글버튼 -->
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">dropdown</button>
+
+                <!-- 2. 드롭다운 될 메뉴 -->
+                <div class="dropdown-menu">
+                    <!-- 메뉴 아이템들에 헤드라인 넣기 -->
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+
+                    <!-- 메뉴 아이템은 보통 링크인 경우가 많음 -->
+                    <a href="#" class="dropdown-item">item link1</a>
+                    <a href="#" class="dropdown-item">item link2</a>
+
+                    <!-- 구분선 삽입 -->
+                    <div class="dropdown-divider"></div>
+
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+                    <!-- 버튼을 놓아도 버튼 모양이 아니라 메뉴 모양이 됨 -->
+                    <button class="dropdown-item disabled">item link3</button>
+                </div>
+
+            </div>
+            <hr>
+
+            <!-- 오른쪽 포지션 드롭다운[root 엘리먼트에 .dropdown] -->
+             <!-- 오른쪽 드롭다운 메뉴 -->
+            <div class="dropright">
+                <!-- 1. 드롭다운 토글버튼 -->
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">dropdown</button>
+
+                <!-- 2. 드롭다운 될 메뉴 -->
+                <div class="dropdown-menu">
+                    <!-- 메뉴 아이템들에 헤드라인 넣기 -->
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+
+                    <!-- 메뉴 아이템은 보통 링크인 경우가 많음 -->
+                    <a href="#" class="dropdown-item">item link1</a>
+                    <a href="#" class="dropdown-item">item link2</a>
+
+                    <!-- 구분선 삽입 -->
+                    <div class="dropdown-divider"></div>
+
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+                    <!-- 버튼을 놓아도 버튼 모양이 아니라 메뉴 모양이 됨 -->
+                    <button class="dropdown-item disabled">item link3</button>
+                </div>
+
+            </div>
+            <hr>
+
+             <!-- 오른쪽 포지션 드롭다운[root 엘리먼트에 .dropdown] -->
+             <!-- 왼쪽 드롭다운 메뉴 -->
+            <div class="dropleft" style="margin-left:200px">
+                <!-- 1. 드롭다운 토글버튼 -->
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">dropdown</button>
+
+                <!-- 2. 드롭다운 될 메뉴 -->
+                <div class="dropdown-menu">
+                    <!-- 메뉴 아이템들에 헤드라인 넣기 -->
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+
+                    <!-- 메뉴 아이템은 보통 링크인 경우가 많음 -->
+                    <a href="#" class="dropdown-item">item link1</a>
+                    <a href="#" class="dropdown-item">item link2</a>
+
+                    <!-- 구분선 삽입 -->
+                    <div class="dropdown-divider"></div>
+
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+                    <!-- 버튼을 놓아도 버튼 모양이 아니라 메뉴 모양이 됨 -->
+                    <button class="dropdown-item disabled">item link3</button>
+                </div>
+
+            </div>
+            <hr>
+
+
+             <!-- 왼쪽 djq 메뉴 -->
+            <div class="dropup">
+                <!-- 1. 드롭다운 토글버튼 -->
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">dropdown</button>
+
+                <!-- 2. 드롭다운 될 메뉴 -->
+                <div class="dropdown-menu">
+                    <!-- 메뉴 아이템들에 헤드라인 넣기 -->
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+
+                    <!-- 메뉴 아이템은 보통 링크인 경우가 많음 -->
+                    <a href="#" class="dropdown-item">item link1</a>
+                    <a href="#" class="dropdown-item">item link2</a>
+
+                    <!-- 구분선 삽입 -->
+                    <div class="dropdown-divider"></div>
+
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+                    <!-- 버튼을 놓아도 버튼 모양이 아니라 메뉴 모양이 됨 -->
+                    <button class="dropdown-item disabled">item link3</button>
+                </div>
+
+            </div>
+            <hr>
+
+            <!-- ****************버튼모양이 아닌 *************이거 많이 쓰겠네 -->
+            <div class="dropdown">
+                <!-- 1. 드롭다운 토글버튼 -->
+                <a href="" class="text-danger" data-toggle="dropdown">Dropdown</a>
+                <!-- 2. 드롭다운 될 메뉴 -->
+                <div class="dropdown-menu">
+                    <!-- 메뉴 아이템들에 헤드라인 넣기 -->
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+
+                    <!-- 메뉴 아이템은 보통 링크인 경우가 많음 -->
+                    <a href="#" class="dropdown-item">item link1</a>
+                    <a href="#" class="dropdown-item">item link2</a>
+
+                    <!-- 구분선 삽입 -->
+                    <div class="dropdown-divider"></div>
+
+                    <h5 class="dropdown-header">Dropdown Header</h5>
+                    <!-- 버튼을 놓아도 버튼 모양이 아니라 메뉴 모양이 됨 -->
+                    <button class="dropdown-item disabled">item link3</button>
+                </div>
+
+            </div>
+            <hr>
+
+            <!-- 버튼 그룹 안에 드롭다운 메뉴가 있는 경우 -->
+            <div class="btn-group">
+                <button class="btn btn-success">Samsung</button>
+                <button class="btn btn-success">SK</button>
+
+                <!-- 드롭다운메뉴버튼을 -->
+                <div class="btn-group dropright">
+                    <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">more</button>
+                    <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">LG</a>
+                        <a href="" class="dropdown-item">SK</a>
+                        <a href="" class="dropdown-item">CJ</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- 화살표만 있는 드롭다운 *****이거도 많이 쓰겠네!! -->
+            <div class="btn-group">
+                <button class="btn btn-primary">SAMSUNG</button>
+                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown"></button>
+                <div class="dropdown-menu">
+                    <a href="" class="dropdown-item">phone</a>
+                    <a href="" class="dropdown-item">tablet</a>
+
+                </div>
+            </div>
+            <hr>
+
+            <div class="btn-group-vertical">
+                <button class="btn btn-success">Samsung</button>
+                <button class="btn btn-success">SK</button>
+
+                <!-- 드롭다운메뉴버튼을 -->
+                <div class="btn-group dropright">
+                    <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">more</button>
+                    <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">LG</a>
+                        <a href="" class="dropdown-item">SK</a>
+                        <a href="" class="dropdown-item">CJ</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+        </div>
+        
+    </body>
+</html>

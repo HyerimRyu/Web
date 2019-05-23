@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <script>
+            // 리터럴, 생성자를 사용하든
+            // 생성된 객체마다 메소드를 가지고 있음
+            function Person(name, age){
+                this.name=name;
+                this.age=age;
+
+
+            }
+
+            var p1=new Person("aaa",10);
+            var p2=new Person("bbb",20);
+
+            // Person객체들만 사용 가능한 메소드 추가
+            Person.prototype.show=function(){
+                document.write("show:"+ this.name+","+this.age+"<br>");
+            }
+
+            p1.show();
+            p2.show();
+
+            // prototype에 속성(멤버변수)를 추가하는 것도 가능
+            Person.prototype.addr="seoul";
+
+            document.write("p1 addr : "+p1.addr+"<br>");
+            document.write("p2 addr : "+p2.addr+"<br>");
+
+            // 아주 주의할 점: 값을 넣을때는 조심!!
+            //p1.addr="busan"; //p1 객체에 새로운 멤버변수 addr을 추가한 것이 됨(prototype의 addr이 아님)
+            Person.prototype.addr="incheon";
+            document.write("p1 addr : "+p1.addr+"<br>");
+            document.write("p2 addr : "+p2.addr+"<br>");
+            // 값을 읽을 때는 내것인양 써도 되지만, 값을 넣을 때는 prototype이라는거 꼭 알려줘야해 
+
+            // 프로토 타입의 상속 같은 특징 : Object클래스의 존재
+            document.write("<hr>");
+
+            document.write(p2+"<br>");
+            document.write(p2.toString()+"<br>");
+
+            // 오버라이딩
+            p2.toString=function(){
+                return "p2 overriding :" + this.name;
+            }
+            document.write(p2+"<br>");
+
+            // Object의 기본 메소드들...p.343
+            document.write("<hr>");
+            document.write(p1.hasOwnProperty('name')+"<br>");  //in이 있어서 많이 안 써
+            document.write(p1.constructor+"<br>");
+            document.write(p1.valueOf()+"<br>");
+
+            // 객체를 연관배열로//
+            var arr=Object.values(p1);
+            document.write(arr+"<br>");
+
+            // 속성(멤버변수) 복사 해 주기
+            var target={a:1, b:3};
+            var source={c:5, d:8};
+
+            //두 번째 파라미터의 속성을 첫 번째 파라미터에 추가 
+            Object.assign(target, source);
+            document.write(target.a+","+target.b+","+target.c+","+target.d+"<br>");
+            document.write(source.a+","+source.b+","+source.c+","+source.d+"<br>");
+
+            // 지역변수의 값을 멤버변수값을 넣을 때 사용 가능
+            function Car(model, color){
+                var abc=4; //지역변수
+
+                this.model=model;
+                this.color=color+abc; //OK
+            }
+
+            var c=new Car();
+            
+            // prototype은 일종의 상속처럼 사용한다. 
+            function Hello(){
+                this.a=10;
+                this.b=20;
+            }
+
+            // 일종의 상속
+            Hello.prototype= {name:"aaa", age:20};
+
+            var h=new Hello();
+            document.write(h.a+","+h.b+","+h.name+","+h.age);
+
+
+        </script>
+
+    </head>
+
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01_ex</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+
+    <body>
+        
+        <audio src="./old_pop.mp3" controls="controls" autoplay="autoplay">
+        브라우저 audio 요소를 인식하지 못 합니다.
+        </audio>
+
+        <!-- 위에 보다 아래꺼 처럼 작업해 : 버전별로 여러 개 다 써놓는게 좋아. 기기에 따라 인식 못할 주도 있기 때문에 -->
+        <audio controls>
+            <source src="./old_pop.mp3" type="audio/mp3">
+            <source src="./old_pop.ogg" type="audio/ogg">
+            <source src="./old_pop.wav" type="audio/wav">
+                
+                브라우저가 audio를 지원하지 않음
+        </audio>
+
+       <video controls>
+           <source src="./movie.ogv" type="video/ogg">
+            비디오가 지원되지 않음
+       </video>
+
+       <video controls width="640" height="480" poster="../Day01/seolak.jpg">
+           <source src="./trailer.mp4" type="video/mp4">
+           <source src="./trailer.ogv" type="video/ogg">
+           <source src="./trailer.webm" type="video/webm">
+       </video>
+
+
+       <hr>
+       <hr>
+
+       <!-- inline frame : iframe -->
+       <iframe src="../Day01/01_text.html" frameborder="0" width="300" height="150"></iframe>
+
+       <!-- 다른 서버의 사이트도 표시 가능 -->
+       <iframe src="http://www.daum.net" frameborder="0" width="300" height="150"></iframe>
+       <iframe src="http://ateat.dothome.co.kr" frameborder="0"></iframe>
+
+
+       <hr>
+       <!-- *******************쇼핑몰 이렇게 만드는거야. 타겟을 iframe 안에 넣기만 하는거야************************************************  -->
+       <!-- 링크<a>에 의해 열리는 파일의 target으로서 iframe을 지정 -->
+           <iframe src="" frameborder="1" name="aaa"></iframe>
+           <a href="http://www.w3c.org" target="aaa">월드와이드웹 공식 사이트</a>
+
+           <hr>
+
+
+           <!-- 뷰그룹같은 역할.. -->
+           <!-- div : divide 논리적으로 영역 구분 -->
+           <div style="background-color:darkkhaki;">
+               <h2>title</h2>
+               <p>This is message</p>
+
+           </div>
+
+           <!-- div는 블럭요소입니다. -->
+           <p>
+               나는 홍길동 입니다. 
+           </p>
+
+           <!-- 이럴 때 인라인 요소의 그룹인 <span>사용 -->
+               <p>
+                   나는 <span style="color:darkred;">홍길동</span> 입니다.
+               </p>
+
+               <div id="header" style="background-color:yellow; height: 50px;"></div>
+               <div id="contents"  style="background-color: red; height: 20px;"></div>
+               <div id="footer" style="background-color:tomato; height: 30px;"></div>
+
+
+    </body>
+</html>

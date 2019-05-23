@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+    </head>
+
+    <body>
+        
+        <!-- 
+           //DOM(Document Object Model), BOM(Browser Object Model)
+           //DOM트리의 가지 하나하나를 node라고 함
+           //node종류(type) : element node, attribute node, text node ...document node
+           //node 간의 관계 : parent node, child node, sibling node <- 이 관계를 이용해서 요소 제어
+
+         -->
+
+         <!-- node 타입 확인하기 -->
+         <p id="p1"><a href="" target="">aaa</a></p>
+
+         <script>
+         
+            // id가 'p1'인 요소 참조하기
+            var e=document.getElementById('p1');
+            //alert(e.nodeType + ","+e.nodeName);
+
+            // p요소의 속성
+            var attrs=e.attributes; //속성들의 배열
+            //alert(attrs[0].nodeType+","+attrs[0].nodeName+" : "+attrs[0].value);
+
+            // p요소의 첫 번째 자식노드 : a요소
+            var e=e.firstChild;
+            //alert(e.nodeType + ","+e.nodeName);
+
+            // a요소의 속성
+            var attrs=e.attributes;
+            //alert(attrs[0].nodeType+","+attrs[0].nodeName+" : "+attrs[0].value);
+            //alert(attrs[1].nodeType+","+attrs[1].nodeName+" : "+attrs[0].value);
+
+            // a요소의 첫 번째 자식노드 : text
+            var t=e.firstChild;
+            //alert(t.nodeType+","+t.nodeName);
+            //alert("텍스트의 값: "+t.data); //*************주의!!!  *******text에서는 value아니고 data
+
+         </script>
+
+         <hr>
+
+         <!-- 자식 노드 제어하기 -->
+         <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+            <li>ddd</li>
+         </ul>
+
+         <ul>
+             <li>kkk</li>
+             <li>sss</li>
+         </ul>
+
+         <script>
+            //  li요소 전체 개수
+            var es=document.getElementsByTagName('li');
+            //alert(es.length);
+
+            // 첫번째 ul 요소의 자식들 중에서 li요소의 개수
+            var uls=document.getElementsByTagName('ul');
+            var es=uls[0].getElementsByTagName('li');  //document없이 바로 getElementsByTagName ->찾는 범주가 달라져 
+            //alert(es.length);
+
+            // 3번째 li의 텍스트 노드의 값
+            //alert(es[2].firstChild.data); //ccc
+
+            // <ul>의 첫 번째 자식 노드는 누구일까?
+            //alert(uls[0].firstChild.nodeName);
+            //                                    ******주의****** 첫 번째 요소가 <li>가 아니라 텍스트 노드야 ..why? 줄바꿈 엔터!!! 엔터가 첫째야!!
+            // 만약 줄바꿈이 없었다면 li가 첫째 자식. 하지만 줄바꿈(엔터)없이 다닥다닥 붙여쓰면 가독성 불편해
+
+            // *****<ul>의 첫 번째 자식 중에서 element node만 얻어오기******
+            //alert(uls[0].firstElementChild.nodeName); //firstChild말고 firstElementChild!!!!!!!!!!!!!!!!! 로 찾기!!
+            //텍스트 얻어오기
+            //alert(uls[0].firstElementChild.firstChild.data); 
+
+            // <ul>의 마지막 자식 element의 텍스트 값
+            //alert(uls[0].lastElementChild.textContent); //textContent=firstChild.data 같은 말이야
+
+         </script>
+
+         <hr>
+
+         <!-- 형제 요소 찾아 제어하기 -->
+         <div>
+             <p>Fruits List</p>
+             <ul>
+                 <li>apple</li>
+                 <li>banana</li>
+                 <li>orange</li>
+             </ul>
+         </div>
+
+         <hr>
+
+         <button onclick="clickBtn(this)">click</button>
+
+         <p></p>
+
+         
+         
+         <script>
+             //매개변수 e : onclick을 발동시킨 button요소(this는 나 니까)
+            function clickBtn(e){
+                var divs=document.getElementsByTagName('div');
+
+                // div요소의 첫 번째 요소노드 자식 찾기 : p
+                var p=divs[0].firstElementChild;
+
+                // p요소 다음에 있는 ul요소 찾기
+                var ul=p.nextSibling; // <- 이렇게 찾으면 text node(Enter)가 나와
+                var ul=p.nextElementSibling; //nextSibling 말고 nextElementSibling!!
+
+                //alert(ul.nodeName);
+
+                
+                // ul의 자식 노드들...
+                //alert(ul.childNodes.length);  <-엔터까지 포함되서 선호하지 않아
+
+                // ****자식 요소들의 개수 
+                //alert(ul.childElementCount);  // *****childElementCount*****:쓸데없는 엔터 없애버리자
+
+                // li들의 글씨 출력해보기
+                var str="";
+
+                var li=ul.firstElementChild;
+                str += li.textContent+"\n";  // **alert창은 document가 아니어서 <br> 못 알아들어. \n써야해
+
+                for(var i=1; i<ul.childElementCount; i++){
+                    li=li.nextElementSibling;
+                    str += li.textContent+"\n";
+                }
+                // alert(str);
+                //document.write(str);  -> 그 전에 있던거 싹 사라지고 이거만 나와 
+
+                // button요소 다음에 있는 p요소에 결과 str 문자열 출력하기
+                e.nextElementSibling.innerHTML=str;
+
+            }
+         </script>
+
+
+    </body>
+</html>

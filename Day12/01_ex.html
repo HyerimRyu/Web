@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title></title>
+
+        <!-- JQuery Library 추가: www.jquery.com -->
+        <!-- 1. 파일 다운로드 -->
+        <script src="./jquery-3.3.1.min.js"></script>
+
+        <!-- 2. CDN(Content Delivery Network) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script>
+            // HTML요소를 찾을 때 CSS선택자를 이용해서 쉽게 선택할 수 있음
+            // 문법
+            // 1)jQuery('css선택자').xxx();
+            // 2)$('css선택자' or 객체).xxx(); :jQuery쓰기 귀찮아, $로 줄일래
+
+            $(document).ready( function(){  //jquery의 기본 ready쓰고 시작
+                jQuery('#btn').click(  function(){
+                    alert('click!');
+                    $(this).hide();
+                } );
+
+                // 이벤트 처리의 3가지 방법
+                // 1. bind()방식-addEventListener()와 같은 방식: 요즘 잘 안써 3번 on()많이 써
+                $('#btn1').bind( 'click', function(){
+                    $('.p1').hide();
+                });
+
+                // 2. 이벤트명으로 되어 있는 메소드 이용
+                $('#btn2').click(function(){
+                    $('.p1').show();
+                });
+
+                // 3. 요즘 권장하는 방식 on()메소드 이용 - bind()와 비슷
+                // 여러개의 이벤트를 한 번에 추가 할 수 있어
+                $('#btn3').on('click', function(){
+                    $('.p1').toggle(); //class선택자( .)라는건, 여러개 동시 가능!!하다는겨~
+
+                    //$('.p1')[0].toggle(); //error!!  : [0]때문에 jquery가 아니라 js객체로 인식됨
+                    $($('.p1')[0]).toggle(); //요렇게 해야함
+
+                    // 추가설명
+                    var a=$('p');
+                    a.toggle();
+
+                    // 위에처럼 해도 되지만 jquery 객체인지 혼동되어서
+                    var $e=$('p');
+                    $e.toggle(); 
+
+
+                });
+            } );
+
+           
+
+        </script>
+
+        <style>
+            div.m{
+                width: 200px;
+                height: 80px;
+                background-color: yellow;
+            }
+
+            div.m2{
+                width: 300px;
+                height: 150px;
+                background-color: plum;
+            }
+        </style>
+
+        <script>
+
+            $(document).ready(function(){
+
+                var cnt=0;
+
+                $('.m').mouseover(function(){
+                    $('div.m p:first').text('mouse over');
+                });
+
+                $('.m').on('mouseleave' , function(){
+                    cnt++;
+                    $('div.m p:last').text(cnt); //나갈때 마다 카운트 올라가
+                });
+
+                // 멀티이벤트 한 번에 처리하기 ... 
+
+                // 수정!!!!!!!!!!!!!!!!!!뭉탱이들
+                var callback={
+                    mousedown:function(){
+                        $(this).html('down : '+ event.buttons+"<br>");
+                        $(this).append('client : '+ event.clientX + ","+event.clentY+"<br>");
+                        $(this).append('screen : '+ event.screenX + ","+event.screenY+"<br>");
+                        $(this).append('offset : '+ event.offsetX + ","+event.offset+"<br>");
+
+                    },
+                    mouseup:function(){
+                        $(this).html('up');
+                        $(this).html('down : '+ event.buttons+"<br>");
+                        $(this).append('client : '+ event.clientX + ","+event.clentY+"<br>");
+                        $(this).append('screen : '+ event.screenX + ","+event.screenY+"<br>");
+                        $(this).append('offset : '+ event.offsetX + ","+event.offset+"<br>");
+                    },
+                    mousemove:function(){
+                        $(this).html('move');
+                        $(this).html('down : '+ event.buttons+"<br>");
+                        $(this).append('client : '+ event.clientX + ","+event.clentY+"<br>");
+                        $(this).append('screen : '+ event.screenX + ","+event.screenY+"<br>");
+                        $(this).append('offset : '+ event.offsetX + ","+event.offset+"<br>");
+                    },
+                    mousewheel:function(){
+                        $(this).html('wheel');
+                        $(this).append('wheel : ' + event.wheelDelta); //올리면 120, 내리면 -120
+                    }
+                };
+                $('div.m2').on(callback);
+
+                // 실행문들이 비슷하다면
+                $('div.m2').on('mousedown mouseup mousemove', function(){
+                    //alert(event.type);
+                    $(this).append(event.type+"<br>");
+                });
+
+            });
+
+        </script>
+
+
+    </head>
+
+    <body>
+
+        <button id="btn">button</button>
+
+        <hr>
+
+        <h3>클릭 이벤트 처리</h3>
+        <button id="btn1">hide</button>
+        <button id="btn2">show</button>
+        <button id="btn3">toggle</button>
+        <p class="p1">이 요소를 제어합니다.</p>
+
+        <hr>
+
+        <h3>마우스 이벤트 처리</h3>
+        <div class="m">
+            <!-- 마우스 오버 -->
+            <p></p>
+            <!-- 마우스 leave정보 -->
+            <p></p>
+        </div>
+
+
+        <!-- 멀티이벤트 처리 -->
+        <div class="m2"></div>
+
+        <hr>
+        
+        <h3>포커스 이벤트 처리</h3>
+        <label>name : <input type="text"></label>
+
+        <script>
+            $('input').focus(function(){
+                $(this).css('background-color', 'yellow');
+            });
+
+            $('input').on('blur', function(){
+                $(this).css('background-color', '');
+            })
+        </script>
+    </body>
+</html>
